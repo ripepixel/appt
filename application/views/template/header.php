@@ -38,3 +38,31 @@
         </nav>
       </div>
     </header>
+
+		<?php
+			if ($this->session->flashdata('success')) {
+					echo "<section id='alerts'>";
+					echo "<div class='container' id='fadeout'>";
+					echo "<div class='row'>";
+					echo '<div class="span8 offset4">';
+						echo "<div class='alert alert-success alert-dismissable'>";
+						echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+							echo $this->session->flashdata('success');
+						echo "</div>";
+					echo "</div>";
+					echo "</div></div></section>";
+			}
+
+			if ($this->session->flashdata('error')) {
+				echo "<section id='alerts'>";
+				echo "<div class='container'>";
+				echo "<div class='row'>";
+					echo '<div class="span8 offset4">';
+						echo "<div class='alert alert-error alert-dismissable'>";
+						echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+							echo $this->session->flashdata('error');
+						echo "</div>";
+					echo "</div>";
+					echo "</div></div></section>";
+			}
+		?>

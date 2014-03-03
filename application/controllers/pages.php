@@ -21,7 +21,11 @@ class Pages extends CI_Controller {
 	}
 
 
-
+	public function terms()
+	{
+		$data['main'] = 'pages/terms';
+		$this->load->view('template/template', $data);
+	}
 
 
 

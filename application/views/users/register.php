@@ -49,8 +49,9 @@
 	    			</div> 
 
 	    			<p>We use goCardless for our payments, which use the Direct Debit scheme. Please have your bank account number and sort code at the ready.</p>
-	    			<p>By starting your free trial, you are confirming that you accept the Terms &amp; Conditions.</p>
+	    			<p>By starting your free trial, you are confirming that you accept the <a href="<?php echo base_url(); ?>pages/terms" target="_blank">Terms &amp; Conditions</a>.</p>
 	    			<p>&nbsp;</p>
+						<input type="hidden" name="plan_id" value="1" />
 
 	    			<div class="form-group">
 	    				<button type="submit" class="btn btn-success">Start Your Free Trial</button>

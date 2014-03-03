@@ -358,6 +358,10 @@ div small.error {
 }
 
 
+#alerts {
+	margin-top: 6rem;
+}
+
 #home {
     height: 49.125rem;
     position:relative;

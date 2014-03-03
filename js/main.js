@@ -24,7 +24,7 @@
     });
 
 
-
+	$('#fadeout').fadeOut(7000);
 
 
     var App = {
