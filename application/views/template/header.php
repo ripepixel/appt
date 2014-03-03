@@ -23,7 +23,7 @@
               <a href="<?php echo base_url(); ?>users/signup">Pricing</a>
             </li>
             <li>
-              <a href="#" id="blog_link">Blog</a>
+              <a href="<?php echo base_url(); ?>blog" id="blog_link">Blog</a>
             </li>
             <li>
               <a href="<?php echo base_url(); ?>pages/contact">Contact</a>
@@ -31,7 +31,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right hidden-sm">
             <li>
-              <button type="button" class="btn btn-success">Sign Up</button>
+              <button type="button" class="btn btn-success" onclick="window.location.href='<?php echo base_url(); ?>users/register'">Sign Up</button>
               <button type="button" class="btn btn-primary">Sign In</button>
             </li>
           </ul>

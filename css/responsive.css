@@ -15,6 +15,11 @@
         font-size: 81.25%;
     }
     
+    #page-title {
+        padding-top:9.5rem;
+        padding-bottom:2.5rem;
+    }
+
     #home_content {
     text-align:center;
     position:fixed;

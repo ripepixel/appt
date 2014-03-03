@@ -55,7 +55,7 @@
                 <hr class="thin" />
             </div>
 
-            <div class="row">
+            <!-- <div class="row">
                 
                 <div class="col-sm-8 col-md-8 col-lg-8">
                     <h2>Go Pro</h2>
@@ -95,7 +95,7 @@
 
             <div class="row">
                 <hr class="thin" />
-            </div>
+            </div> 
 
             <div class="row">
                 <div class="col-sm8 col-md-8 col-lg-8">
@@ -109,7 +109,7 @@
 
             <div class="row">
                 <hr class="thin" />
-            </div>
+            </div> -->
 
             <div class="row">
                 <div class="col-sm8 col-md-8 col-lg-8">
@@ -117,7 +117,7 @@
                     <p>If you need extra, such as telephone support, multiple outlets</p>
                 </div>
                 <div class="col-sm4 col-md-4 col-lg-4">
-                    <button class="btn cta2">Call us</button>
+                    <a href="<?php echo base_url(); ?>pages/contact" class="btn cta2">Call us</a>
                 </div>
             </div>
             

@@ -15,6 +15,8 @@
     <link href="<?php echo base_url(); ?>css/nivo_lightbox_themes/default/default.css" rel="stylesheet" media="screen">
     <link href="<?php echo base_url(); ?>css/colors/green.css" rel="stylesheet" media="screen">
     <link href="<?php echo base_url(); ?>css/responsive.css" rel="stylesheet" media="screen">
+
+    <script src="<?php echo base_url(); ?>js/jquery-2.0.3.min.js"></script>
     
     <!-- Google fonts -->
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic" rel="stylesheet" type="text/css">

@@ -41,11 +41,12 @@
     </section>
 
     <!-- JavaScript plugins comes here -->
-    <script src="<?php echo base_url(); ?>js/jquery-2.0.3.min.js"></script>
+    
     <script src="<?php echo base_url(); ?>js/bootstrap.js"></script>
     <script src="<?php echo base_url(); ?>js/jquery.easing.min.js"></script>
     <script src="<?php echo base_url(); ?>js/jquery.scrollTo.js"></script>
     <script src="<?php echo base_url(); ?>js/jquery.form.js"></script>
+    <script src="<?php echo base_url(); ?>js/jquery.validate.min.js"></script>
     <script src="<?php echo base_url(); ?>js/main.js"></script>
     <script src="<?php echo base_url(); ?>js/retina.js"></script>
     <script src="<?php echo base_url(); ?>js/waypoints.min.js"></script>

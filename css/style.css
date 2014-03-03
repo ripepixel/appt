@@ -117,7 +117,13 @@ hr.thin {
     margin-bottom:3rem;
 }
 
+div small.error {
+ color: #B94A48; 
+}
 
+.has-alert input {
+    border: 1px solid #B94A48;
+}
 
 
 
@@ -313,6 +319,9 @@ hr.thin {
 /*######################################*/
 /*HOME #################################*/
 /*######################################*/
+.signup-faq h4 {
+    margin-top: 20px;
+}
 
 #header {
     box-shadow: 0 0 5px rgba(0,0,0,.05);
@@ -534,9 +543,13 @@ label span {
 }
 
 
-.btn-success {
+.btn-success, .btn-success:hover {
     background-color:  #A7CB00;
     border-color: #A7CB00;
+}
+
+.btn-success:hover {
+    opacity: 0.8;
 }
 
 
@@ -967,14 +980,14 @@ label span {
 /*######################################*/
 
 .post {
-    padding-top:6.5rem;
+    /*padding-top:6.5rem;*/
     padding-bottom:6.5rem;
     background:white;
     position:relative;
     display:block;
     z-index:20;
     text-align:left;
-    border-bottom: solid 1px #f0f0f0;
+    /*border-bottom: solid 1px #f0f0f0;*/
 }
 
 .post h2 {
@@ -1008,7 +1021,7 @@ iframe {
 
 
 #pagination {
-    padding-top:3.25rem;
+    padding-top:0.25rem;
     padding-bottom:3.25rem;
     background:white;
     position:relative;
