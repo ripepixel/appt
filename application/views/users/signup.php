@@ -20,18 +20,18 @@
                     <div class="row">
                          <div class="col-sm-6 col-md-6  col-lg-6" >
                              <ul class="signup">
-                                <li><svg viewBox="0 0 32 32" class="icon"><use xlink:href="#check"></use></svg>Unlimited Clients</li>
-                                <li><svg viewBox="0 0 32 32" class="icon"><use xlink:href="#check"></use></svg>Unlimited Staff</li>
-                                <li><svg viewBox="0 0 32 32" class="icon"><use xlink:href="#check"></use></svg>Unlimited Services</li>
-                                <li><svg viewBox="0 0 32 32" class="icon"><use xlink:href="#check"></use></svg>Unlimited Appointments</li>
+                                <li><i class="icon fa fa-check-circle-o fa-lg"></i>Unlimited Clients</li>
+                                <li><i class="icon fa fa-check-circle-o fa-lg"></i>Unlimited Staff</li>
+                                <li><i class="icon fa fa-check-circle-o fa-lg"></i>Unlimited Services</li>
+                                <li><i class="icon fa fa-check-circle-o fa-lg"></i>Unlimited Appointments</li>
                             </ul>
                          </div>
                          <div class="col-sm-6 col-md-6  col-lg-6" >
                              <ul class="signup">
-                                <li><svg viewBox="0 0 32 32" class="icon"><use xlink:href="#check"></use></svg>Email Reminders</li>
-                                <li><svg viewBox="0 0 32 32" class="icon"><use xlink:href="#check"></use></svg>Unlimited Staff</li>
-                                <li><svg viewBox="0 0 32 32" class="icon"><use xlink:href="#check"></use></svg>Unlimited Services</li>
-                                <li><svg viewBox="0 0 32 32" class="icon"><use xlink:href="#check"></use></svg>Unlimited Appointments</li>
+                                <li><i class="icon fa fa-check-circle-o fa-lg"></i>Email Reminders</li>
+                                <li><i class="icon fa fa-check-circle-o fa-lg"></i>Unlimited Staff</li>
+                                <li><i class="icon fa fa-check-circle-o fa-lg"></i>Unlimited Services</li>
+                                <li><i class="icon fa fa-check-circle-o fa-lg"></i>Unlimited Appointments</li>
                             </ul>
                          </div>
                     </div>
@@ -43,7 +43,7 @@
                 <div class="col-sm-4 col-md-4  col-lg-4" >
                     <div class="feature try-now">
                         <div>
-                            <button class="btn cta2 try-now">Try Appt Free</button>
+                            <a href="<?php echo base_url(); ?>users/register" class="btn cta2">Try Appt Free</a>
                             <h3>Free for 30 days, then only &pound;19.99 / month</h3>
                         </div>
                     </div>

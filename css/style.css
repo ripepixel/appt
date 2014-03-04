@@ -117,6 +117,11 @@ hr.thin {
     margin-bottom:3rem;
 }
 
+hr.vthin {
+    margin-top:0.1rem;
+    margin-bottom:2rem;
+}
+
 div small.error {
  color: #B94A48; 
 }
@@ -319,6 +324,16 @@ div small.error {
 /*######################################*/
 /*HOME #################################*/
 /*######################################*/
+.dashboard-menu {
+    color: #D8D8D8;
+}
+
+.dashboard-menu:hover {
+    color: #a7cb00;
+}
+
+
+
 .signup-faq h4 {
     margin-top: 20px;
 }
@@ -357,9 +372,17 @@ div small.error {
     color: #1ABC9C;
 }
 
+#dashboard-main {
+    margin-bottom: 3rem;
+}
+
+#calendar-dashboard h2 {
+    font-size: 24px;
+}
 
 #alerts {
 	margin-top: 6rem;
+    margin-bottom: 2rem;
 }
 
 #home {
@@ -422,6 +445,7 @@ ul.signup .icon {
     float: left;
     margin-right:1rem;
     fill: #a7cb00;
+    color: #a7cb00;
 }
 
 

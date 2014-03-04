@@ -22,8 +22,7 @@
                     <p>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum.
                     </p>
                     <div class="feature">
-                        <svg viewBox="0 0 32 32" class="feature_icon">
-                        <use xlink:href="#graph-pie1"></use></svg>
+                        <i class="feature_icon fa fa-tachometer fa-2x"></i>
                         <div>
                             <h4>Beautiful, modern design</h4>
                             <p>Epsum factorial non deposit quid pro quo<br>hic escorol.</p>
@@ -31,8 +30,7 @@
                     </div>
                     
                     <div class="feature">
-                        <svg viewBox="0 0 32 32" class="feature_icon">
-                            <use xlink:href="#joystick"></use></svg>
+                       <i class="feature_icon fa fa-tachometer fa-2x"></i>
                         <div>
                             <h4>Easy to set up</h4>
                             <p>Epsum factorial non depositquid pro quo<br>hic escorol.</p>
@@ -48,21 +46,7 @@
        
     </section>
 
-    <!--Arrows-->
-    <section class="arrows_box">
-        <div class="arrows">
-            <svg viewBox="0 0 32 32" class="arrow_down" id="features_1_arrow_next">
-                <use xlink:href="#right-arrow"></use></svg>
-            <svg viewBox="0 0 32 32" class="arrow_up" id="features_1_arrow_back">
-                <use xlink:href="#left-arrow"></use></svg>
-        </div>
-    </section>
-    <!--######-->
     
-
-    <!--###############################-->
-    <!--Features 2 ####################-->
-    <!--###############################-->
 
     <section id="features_2">
         <div class="container">
@@ -73,8 +57,7 @@
                     <p>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum.
                     </p>
                     <div class="feature">
-                        <svg viewBox="0 0 32 32" class="feature_icon">
-                            <use xlink:href="#ribbon"></use></svg>
+                        <i class="feature_icon fa fa-tachometer fa-2x"></i>
                         <div>
                             <h4>Video background</h4>
                             <p>Epsum factorial non deposit quid pro quo<br>hic escorol.</p>
@@ -82,8 +65,7 @@
                     </div>
                     
                     <div class="feature">
-                        <svg viewBox="0 0 32 32" class="feature_icon">
-                            <use xlink:href="#rotate"></use></svg>
+                        <i class="feature_icon fa fa-tachometer fa-2x"></i>
                         <div>
                             <h4>Cool animations</h4>
                             <p>Epsum factorial non depositquid pro quo<br>hic escorol.</p>
@@ -104,13 +86,3 @@
         
     </section>
 
-
-    <!--Arrows-->
-    <section class="arrows_box arrows_no_border">
-        <div class="arrows">
-            <svg viewBox="0 0 32 32" class="arrow_down" id="features_2_arrow_next">
-                <use xlink:href="#right-arrow"></use></svg>
-            <svg viewBox="0 0 32 32" class="arrow_up" id="features_2_arrow_back">
-                <use xlink:href="#left-arrow"></use></svg>
-        </div>
-    </section>

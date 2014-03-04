@@ -28,21 +28,42 @@
             <div class="row" >
                 
                 <div class="col-sm-4 col-md-4 col-lg-4" id="service_1">
-                    <svg viewBox="0 0 32 32" class="services_icon"><use xlink:href="#globe"></use></svg>
+                    <i class="services_icon fa fa-globe fa-5x"></i>
                     <h3>Book Anywhere</h3>
                     <p>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum.
                     </p>
                 </div>
                 
                 <div class="col-sm-4 col-md-4 col-lg-4" id="service_2">
-                    <svg viewBox="0 0 32 32" class="services_icon"><use xlink:href="#speed"></use></svg>
+                    <i class="services_icon fa fa-clock-o fa-5x"></i>
                     <h3>Save Time</h3>
                     <p>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum.
                     </p>
                 </div>
                 
                 <div class="col-sm-4 col-md-4 col-lg-4" id="service_3">
-                    <svg viewBox="0 0 32 32" class="services_icon"><use xlink:href="#alarm-clock"></use></svg>
+                    <i class="services_icon fa fa-calendar fa-5x"></i>
+                    <h3>Reduce No Shows</h3>
+                    <p>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum.
+                    </p>
+                </div>
+
+                <div class="col-sm-4 col-md-4 col-lg-4" id="service_4">
+                    <i class="services_icon fa fa-globe fa-5x"></i>
+                    <h3>Book Anywhere</h3>
+                    <p>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum.
+                    </p>
+                </div>
+                
+                <div class="col-sm-4 col-md-4 col-lg-4" id="service_5">
+                    <i class="services_icon fa fa-tachometer fa-5x"></i>
+                    <h3>Save Time</h3>
+                    <p>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum.
+                    </p>
+                </div>
+                
+                <div class="col-sm-4 col-md-4 col-lg-4" id="service_6">
+                    <i class="services_icon fa fa-calendar fa-5x"></i>
                     <h3>Reduce No Shows</h3>
                     <p>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum.
                     </p>
@@ -53,15 +74,6 @@
         </div>
     </section>
 
-     <!--Arrows-->
-    <section class="arrows_box">
-    <div class="arrows">
-        <svg viewBox="0 0 32 32" class="arrow_down" id="about_arrow_next">
-            <use xlink:href="#right-arrow"></use></svg>
-        <svg viewBox="0 0 32 32" class="arrow_up" id="about_arrow_back">
-            <use xlink:href="#left-arrow"></use></svg>
-    </div>
-    </section>
 
     <section id="dev_blog">
         <div class="container">
@@ -103,11 +115,3 @@
             </div>
         </div>
     </section>
-    
-    
-    <!--Arrows - single arrow wersion-->
-    <section class="arrows_box">
-        <div class="arrow_single">
-            <svg viewBox="0 0 32 32" class="arrow_up" id="dev_blog_arrow_back">
-                <use xlink:href="#left-arrow"></use></svg>
-        </div>

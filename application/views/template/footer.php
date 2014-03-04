@@ -23,12 +23,9 @@
                    
                    <div id="social_icons">
                        <ul>
-                           <li><svg viewBox="0 0 32 32" id="fb_icon" onclick="location.href='#'"><use xlink:href="#facebook"></use></svg></li>
-                           <li><svg viewBox="0 0 32 32" id="tw_icon" onclick="location.href='#''"><use xlink:href="#twitter"></use></svg></li>
-                           <li><svg viewBox="0 0 32 32" id="in_icon" onclick="location.href='#'"><use xlink:href="#linkedin"></use></svg></li>
-                           <li><svg viewBox="0 0 32 32" id="g_icon" onclick="location.href='#'"><use xlink:href="#google-plus"></use></svg></li>
-                           <li><svg viewBox="0 0 32 32" id="pin_icon" onclick="location.href='#'"><use xlink:href="#pinterest"></use></svg></li>
-                           <li><svg viewBox="0 0 32 32" id="fli_icon" onclick="location.href='#'"><use xlink:href="#flickr"></use></svg></li>
+                           <li><i id="tw_icon" class="fa fa-facebook-square fa-4x" onclick="location.href='#'"></i></li>
+                           <li><i id="tw_icon" class="fa fa-twitter fa-4x" onclick="location.href='#'"></i></li>
+                           <li><i id="tw_icon" class="fa fa-google-plus fa-4x" onclick="location.href='#'"></i></li>
                        </ul>
                    </div>
                    
@@ -63,12 +60,6 @@
                 });
             });
     </script>
-    <script>
-        var url ='<?php echo base_url(); ?>images/icons.svg';
-        var c=new XMLHttpRequest(); c.open('GET', url, false); c.setRequestHeader('Content-Type', 'text/xml'); c.send();
-        document.body.insertBefore(c.responseXML.firstChild, document.body.firstChild)
-    </script>
-
-
+    
   </body>
 </html>

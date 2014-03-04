@@ -9,6 +9,44 @@ class Users extends CI_Controller {
 		$this->load->view('template/template', $data);
 	}
 
+	public function signin()
+	{
+		// login page
+		$data['main'] = 'users/signin';
+		$this->load->view('template/template', $data);
+	}
+
+	public function process_signin($value='')
+	{
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+
+		if($this->form_validation->run() == FALSE) {
+			$data['main'] = 'users/signin';
+			$this->load->view('template/template', $data);
+		} else {
+			$sec_pass = md5($this->input->post('password'));
+			$this->load->model('User_model');
+			$validated = $this->User_model->validateUser($this->input->post('email'), $sec_pass);
+			if($validated) {
+				// logged in OK, set session, send to dashboard
+				$data = array(
+					'user_id' => $validated->id,
+					'first_name' => $validated->first_name,
+					'surname' => $validated->surname,
+					'business_name' => $validated->business_name
+					);
+				$this->session->set_userdata($data);
+				$this->session->set_flashdata('success', 'Signed in successfully :)');
+				redirect('dashboard/');
+			} else {
+				// problem with email or password
+				$this->session->set_flashdata('error', 'There was a problem with your email or password. Please check and try again.');
+				redirect('users/signin');
+			}
+		}
+	}
+
 	public function register()
 	{
 		$this->load->model('Business_category_model');
@@ -72,6 +110,12 @@ class Users extends CI_Controller {
 		}
 		
 	}
+
+	public function signout()
+	{
+		$this->session->sess_destroy();
+		redirect('pages/');
+	}
 	
 	public function payment_failed()
 	{
@@ -82,7 +126,7 @@ class Users extends CI_Controller {
 	{
 		// if payment successful
 		// get user details, set active = 1, set session data, redirect to their dashboard
-		$this->session->set_flashdata('success', 'Great you have now been signed up.');
+		$this->session->set_flashdata('success', 'Great you have now been signed up. Please log in to get started.');
 		redirect('pages/');
 	}
 	

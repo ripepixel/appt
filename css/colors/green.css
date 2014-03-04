@@ -40,6 +40,7 @@ body {
 #fli_icon:hover,
 .services_icon {
     fill:#a7cb00;
+    color: #a7cb00;
 }
 
 
@@ -53,6 +54,7 @@ body {
 #pin_icon, 
 #fli_icon {
     fill: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.5);
 }
 
 
@@ -73,6 +75,7 @@ h4 {
 
 .feature_icon {
     fill:#d8d8d8;
+    color:#d8d8d8;
 }
 
 .arrow_up,

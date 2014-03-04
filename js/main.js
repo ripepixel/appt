@@ -111,6 +111,9 @@
             setTimeout(function(){$('#service_1').addClass('animated fadeInDown')},300);
             setTimeout(function(){$('#service_2').addClass('animated fadeInDown')},500);
             setTimeout(function(){$('#service_3').addClass('animated fadeInDown')},700);
+            setTimeout(function(){$('#service_4').addClass('animated fadeInDown')},900);
+            setTimeout(function(){$('#service_5').addClass('animated fadeInDown')},1100);
+            setTimeout(function(){$('#service_6').addClass('animated fadeInDown')},1300);
         }, { offset: '50%' });
  
         $('#features_1').waypoint(function() {
