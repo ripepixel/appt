@@ -11,8 +11,7 @@
 		<div class="row">
 			<div class="col-lg-8">	
 			</div>
-			<div class="col-lg-3 col-lg-offset-1">
-			</div>
+			<?php $this->load->view('settings/sidebar'); ?>
 		</div>
 	</div>
 </section>

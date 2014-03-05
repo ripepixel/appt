@@ -26,6 +26,27 @@
 
 	$('#fadeout').fadeOut(7000);
 
+    $("#copy_times").click(copyTime);
+        function copyTime()
+        {
+            var start=$("#mon_start").val();
+            var finish=$("#mon_finish").val();
+            if (this.checked==true) {
+                $("#tues_start").val(start);
+                $("#tues_finish").val(finish);
+                $("#wed_start").val(start);
+                $("#wed_finish").val(finish);
+                $("#thurs_start").val(start);
+                $("#thurs_finish").val(finish);
+                $("#fri_start").val(start);
+                $("#fri_finish").val(finish);
+                $("#sat_start").val(start);
+                $("#sat_finish").val(finish);
+                $("#sun_start").val(start);
+                $("#sun_finish").val(finish);
+            }
+        }
+
 
     var App = {
  

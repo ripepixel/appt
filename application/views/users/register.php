@@ -3,7 +3,7 @@
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" >
                     <h2>Try Appt Free For 30 Days</h2>
-                    <p>You can upgrade, downgrade or cancel at any time.</p>
+                    <p>You can cancel at any time.</p>
                 </div>
             </div>
     </div>

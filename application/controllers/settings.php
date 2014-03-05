@@ -18,7 +18,12 @@ class Settings extends CI_Controller {
 		$this->load->view('back_template/template', $data);
 	}
 
-	
+	public function opening_hours()
+	{
+		# business opening hours
+		$data['main'] = 'settings/opening_hours';
+		$this->load->view('back_template/template', $data);
+	}
 	
 	
 	

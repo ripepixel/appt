@@ -468,6 +468,11 @@ label span {
 /*ABOUT ################################*/
 /*######################################*/
 
+form.opening-hours .form-group {
+    margin-bottom: 60px;
+}
+
+
 #about {
     padding-top:6.5rem;
     padding-bottom:6.5rem;

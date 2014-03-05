@@ -6,7 +6,7 @@
                  <div id="logo_header"><h5>Appointments made simple</h5></div>
                  <div id="slogan"><h1>Appt is an easy, online appointment scheduler for your business.</h1></div>
                  <a href="#" class="cta1" id="button_more">Learn More</a>
-                 <a href="#" class="cta2" id="button_download">Start Free Trial</a>
+                 <a href="<?php echo base_url(); ?>users/register" class="cta2" id="button_download">Start Free Trial</a>
                  <img src="images/homescreen.png" class="img-responsive" id="home_image" alt="img">
             </div> <div class="clearfix"></div>
         </div>
