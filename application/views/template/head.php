@@ -17,6 +17,7 @@
     <link href="<?php echo base_url(); ?>css/responsive.css" rel="stylesheet" media="screen">
     <link href="<?php echo base_url(); ?>css/font-awesome.min.css" rel="stylesheet" media="screen">
     <link href="<?php echo base_url(); ?>css/fullcalendar.css" rel="stylesheet" media="screen">
+    <link href="<?php echo base_url(); ?>css/datepicker.css" rel="stylesheet" media="screen">
 
     <script src="<?php echo base_url(); ?>js/jquery-2.0.3.min.js"></script>
     

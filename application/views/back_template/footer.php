@@ -26,6 +26,8 @@
     <script src="<?php echo base_url(); ?>js/owl.carousel.min.js"></script>
     <script src="<?php echo base_url(); ?>js/nivo-lightbox.min.js"></script>
     <script src="<?php echo base_url(); ?>js/fullcalendar.js"></script>
+    <script src="<?php echo base_url(); ?>js/bootstrap-datepicker.js"></script>
+    <script src="<?php echo base_url(); ?>js/bootstrap-dropdown.js"></script>
     <script type="text/javascript">
         $('document').ready(function(){
                 $('#subscribe-form').ajaxForm( {

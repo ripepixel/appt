@@ -11,7 +11,7 @@ class User_model extends CI_Model {
     function createUser($data)
     {
     	$this->db->insert('users', $data);
-			return $this->db->insert_id();
+		return $this->db->insert_id();
     }
 
     function validateUser($email, $pass)

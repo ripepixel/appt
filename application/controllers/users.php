@@ -80,6 +80,38 @@ class Users extends CI_Controller {
 			);
 			$this->load->model('User_model');
 			$new_user = $this->User_model->createUser($data);
+
+			// create staff user
+			$this->load->model('Staff_model');
+			$data_staff = array(
+				'user_id' => $new_user,
+				'first_name' => $this->input->post('first_name'),
+				'last_name' => $this->input->post('surname'),
+				'email' => $this->input->post('email'),
+				'password' => $sec_pass,
+				'is_manager' => 1
+				);
+			$staff = $this->Staff_model->saveStaff($data);
+			// create staff hours - default times 9-5 closed weekends
+			$data_hours = array(
+				'staff_id' => $staff,
+				'mon_open' => "09:00",
+				'mon_close' => "17:00",
+				'tues_open' => "09:00",
+				'tues_close' => "17:00",
+				'wed_open' => "09:00",
+				'wed_close' => "17:00",
+				'thurs_open' => "09:00",
+				'thurs_close' => "17:00",
+				'fri_open' => "09:00",
+				'fri_close' => "17:00",
+				'sat_open' => "00:00",
+				'sat_close' => "00:00",
+				'sun_open' => "00:00",
+				'sun_close' => "00:00"
+				);
+			$this->Staff_model->saveStaffHours($data_hours);
+			
 			if($new_user) {
 				# send welcome email
 				

@@ -29,21 +29,21 @@
     $("#copy_times").click(copyTime);
         function copyTime()
         {
-            var start=$("#mon_start").val();
-            var finish=$("#mon_finish").val();
+            var open=$("#mon_open").val();
+            var close=$("#mon_close").val();
             if (this.checked==true) {
-                $("#tues_start").val(start);
-                $("#tues_finish").val(finish);
-                $("#wed_start").val(start);
-                $("#wed_finish").val(finish);
-                $("#thurs_start").val(start);
-                $("#thurs_finish").val(finish);
-                $("#fri_start").val(start);
-                $("#fri_finish").val(finish);
-                $("#sat_start").val(start);
-                $("#sat_finish").val(finish);
-                $("#sun_start").val(start);
-                $("#sun_finish").val(finish);
+                $("#tues_open").val(open);
+                $("#tues_close").val(close);
+                $("#wed_open").val(open);
+                $("#wed_close").val(close);
+                $("#thurs_open").val(open);
+                $("#thurs_close").val(close);
+                $("#fri_open").val(open);
+                $("#fri_close").val(close);
+                $("#sat_open").val(open);
+                $("#sat_close").val(close);
+                $("#sun_open").val(open);
+                $("#sun_close").val(close);
             }
         }
 

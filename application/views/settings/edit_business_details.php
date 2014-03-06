@@ -9,8 +9,8 @@
 <section id="dashboard-main">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-8 col-md-6">
-				<form action="<?php echo base_url(); ?>settings/save_business_details" method="post" class="opening-hours" id="business-form">
+			<div class="col-lg-8">
+				<form action="<?php echo base_url(); ?>settings/update_business_details" method="post" class="opening-hours" id="business-form">
 					<div class="row">
 						<div class="form-group">
 			    			<div class="col-lg-12">
@@ -18,7 +18,7 @@
 			    				<label for="street">Street</label>
 			    			</div>
 			    			<div class="col-lg-8">
-			    				<input type="text" name="street" id="street" class="form-control" required />
+			    				<input type="text" name="street" id="street" class="form-control" required value="<?php echo $bd->street; ?>" />
 			    			</div>
 			    		</div>
 
@@ -27,7 +27,7 @@
 			    				<label for="town">Town</label>
 			    			</div>
 			    			<div class="col-lg-8">
-			    				<input type="text" name="town" id="town" class="form-control" required />
+			    				<input type="text" name="town" id="town" class="form-control" value="<?php echo $bd->town; ?>" required />
 			    			</div>
 			    		</div>
 
@@ -36,7 +36,7 @@
 			    				<label for="county">County</label>
 			    			</div>
 			    			<div class="col-lg-8">
-			    				<input type="text" name="county" id="county" class="form-control" required />
+			    				<input type="text" name="county" id="county" class="form-control" value="<?php echo $bd->county; ?>" required />
 			    			</div>
 			    		</div>
 
@@ -45,7 +45,7 @@
 			    				<label for="postcode">Postcode</label>
 			    			</div>
 			    			<div class="col-lg-8">
-			    				<input type="text" name="postcode" id="postcode" class="form-control" required />
+			    				<input type="text" name="postcode" id="postcode" class="form-control" value="<?php echo $bd->postcode; ?>" required />
 			    			</div>
 			    		</div>
 
@@ -56,8 +56,10 @@
 			    			<div class="col-lg-8">
 			    				<select name="country" class="form-control">
 			    				<?php $countries = $this->Setting_model->getCountries();
-			    				foreach($countries as $country) { ?>
-			    					<option value="<?php echo $country['id']; ?>"><?php echo $country['name']; ?></option>
+			    				foreach($countries as $country) { 
+			    					$sel = ($country['id'] == $bd->country_id) ? "selected='selected'" : "";
+			    					?>
+			    					<option value="<?php echo $country['id']; ?>" <?php echo $sel; ?>><?php echo $country['name']; ?></option>
 			    				<?php
 			    				}
 			    				?>
@@ -71,7 +73,7 @@
 			    				<label for="telephone">Telephone</label>
 			    			</div>
 			    			<div class="col-lg-8">
-			    				<input type="text" name="telephone" id="telephone" class="form-control" />
+			    				<input type="text" name="telephone" id="telephone" class="form-control" value="<?php echo $bd->telephone; ?>" />
 			    			</div>
 			    		</div>
 
@@ -80,7 +82,7 @@
 			    				<label for="public_email">Public Email</label>
 			    			</div>
 			    			<div class="col-lg-8">
-			    				<input type="email" name="public_email" id="public_email" class="form-control" email />
+			    				<input type="email" name="public_email" id="public_email" class="form-control" value="<?php echo $bd->public_email; ?>" email />
 			    			</div>
 			    		</div>
 
@@ -89,7 +91,7 @@
 			    				<label for="website">Website</label>
 			    			</div>
 			    			<div class="col-lg-8">
-			    				<input type="text" name="website" id="website" class="form-control" />
+			    				<input type="text" name="website" id="website" class="form-control" value="<?php echo $bd->website; ?>" />
 			    			</div>
 			    		</div>
 
@@ -99,7 +101,7 @@
 			    				<label for="facebook">Facebook Page</label>
 			    			</div>
 			    			<div class="col-lg-8">
-			    				<input type="text" name="facebook" id="facebook" class="form-control" />
+			    				<input type="text" name="facebook" id="facebook" class="form-control" value="<?php echo $bd->facebook; ?>" />
 			    			</div>
 			    		</div>
 
@@ -108,7 +110,7 @@
 			    				<label for="twitter">Twitter Page</label>
 			    			</div>
 			    			<div class="col-lg-8">
-			    				<input type="text" name="twitter" id="twitter" class="form-control" />
+			    				<input type="text" name="twitter" id="twitter" class="form-control" value="<?php echo $bd->twitter; ?>" />
 			    			</div>
 			    		</div>
 
@@ -117,7 +119,7 @@
 			    	<div class="row">
 			    		<div class="col-lg-12">
 				    		<div class="form-group">
-			           			<button class="btn btn-success" type="submit">Save</button>
+			           			<button class="btn btn-success" type="submit">Update</button>
 			       			</div>
 			       		</div>
 		       		</div>

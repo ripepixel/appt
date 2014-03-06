@@ -1,7 +1,7 @@
 <section id="page-title">
     <div class="container">
             <div class="row">
-            <h2>My Business Opening Hours</h2>
+            <h2>New Staff Member</h2>
           	</div>
     </div>
 </section>
@@ -9,9 +9,101 @@
 <section id="dashboard-main">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-8">
-				<form action="<?php echo base_url(); ?>settings/save_opening_hours" method="post" class="opening-hours">
-					<div class="row">
+			<div class="col-lg-12">
+			<form action="<?php echo base_url(); ?>staff/save_staff" method="post" class="staff-form">
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading"><h4>Staff Details</h4></div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-12">
+									<label for="first_name">First Name</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="text" name="first_name" id="first_name" class="form-control" /> 
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-12">
+									<label for="last_name">Last Name</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="text" name="last_name" id="last_name" class="form-control" /> 
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-12">
+									<label for="email">Email</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="email" name="email" id="email" class="form-control" /> 
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-12">
+									<label for="telephone">Telephone</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="text" name="telephone" id="telephone" class="form-control" /> 
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-12">
+									<label for="mobile">Mobile</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="text" name="mobile" id="mobile" class="form-control" /> 
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-12">
+									<label for="address">Address</label>
+								</div>
+								<div class="col-lg-6">
+									<textarea name="address" id="address" class="form-control"></textarea> 
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-12">
+									<label for="dob">Date Of Birth</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="text" name="dob" id="dob" class="form-control" /> 
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-12">
+									<label for="gender">Gender</label>
+								</div>
+								<div class="col-lg-6">
+									<select name="gender" id="gender" class="form-control">
+									<option value="">-- Gender --</option>
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+									</select> 
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading"><h4>Staff Hours</h4></div>
+						<div class="panel-body">
+							<div class="row">
 						<div class="form-group">
 			    			<div class="col-lg-12">
 			    				<label for="">Monday</label>
@@ -164,21 +256,19 @@
 			    			</div>
 			    		</div>
 			    	</div>
-
-			    	<div class="row">
-			    		<div class="col-lg-12">
-				    		<div class="form-group">
-			           			<button class="btn btn-success" type="submit">Save</button>
-			       			</div>
-			       		</div>
-		       		</div>
-
-				</form>
-			</div>
-			<?php $this->load->view('settings/sidebar'); ?>
-			<div class="col-lg-4">
-				<p><strong>Note:</strong> You can always book appointments outside of your business opening hours.</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="form-group">
+					<button class="btn btn-success" type="submit">Save</button>
+					<a href="<?php echo base_url(); ?>staff/" class="btn btn-danger">Cancel</a>
+				</div>
+			</div>
+		</div>
+		</form>
 	</div>
 </section>

@@ -53,7 +53,18 @@
           <ul class="nav navbar-nav navbar-right hidden-sm">
             <li>
             <?php if($this->session->userdata('user_id')) { ?>
-              <button type="button" class="btn btn-primary" onclick="window.location.href='<?php echo base_url(); ?>dashboard/'">My Business</button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                My Business <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="<?php echo base_url(); ?>staff/">Staff</a></li>
+                <li class="divider"></li>
+                <li><a href="<?php echo base_url(); ?>settings/">Settings</a></li>
+              </ul>
+            </div>
               <button type="button" class="btn btn-danger" onclick="window.location.href='<?php echo base_url(); ?>users/signout'">Sign Out</button>
             <?php } else { ?>
               <button type="button" class="btn btn-success" onclick="window.location.href='<?php echo base_url(); ?>users/register'">Try Free</button>

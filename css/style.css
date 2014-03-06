@@ -130,7 +130,10 @@ div small.error {
     border: 1px solid #B94A48;
 }
 
-
+.nav .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
 
 /*######################################*/
 /*BUTTONS ############################*/
@@ -382,7 +385,7 @@ div small.error {
 
 #alerts {
 	margin-top: 6rem;
-    margin-bottom: 2rem;
+    /*margin-bottom: 2rem;*/
 }
 
 #home {
@@ -467,6 +470,10 @@ label span {
 /*######################################*/
 /*ABOUT ################################*/
 /*######################################*/
+
+form.staff-form .row {
+    margin-bottom: 20px;
+}
 
 form.opening-hours .form-group {
     margin-bottom: 60px;

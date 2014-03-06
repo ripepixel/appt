@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 05, 2014 at 04:13 PM
+-- Generation Time: Mar 06, 2014 at 04:09 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -128,12 +128,42 @@ INSERT INTO `business_categories` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `business_details`
+--
+
+CREATE TABLE IF NOT EXISTS `business_details` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `town` varchar(150) DEFAULT NULL,
+  `county` varchar(150) DEFAULT NULL,
+  `postcode` varchar(15) DEFAULT NULL,
+  `country_id` int(3) NOT NULL,
+  `telephone` varchar(15) DEFAULT NULL,
+  `public_email` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `facebook` varchar(255) DEFAULT NULL,
+  `twitter` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `business_details`
+--
+
+INSERT INTO `business_details` (`id`, `user_id`, `street`, `town`, `county`, `postcode`, `country_id`, `telephone`, `public_email`, `website`, `facebook`, `twitter`, `image`) VALUES
+(1, 9, '142 Market Street', 'Bury', 'Lancashire', 'BL8 3LS', 1, '01204 123456', '', 'http://www.how-media.co.uk', '', '', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `business_hours`
 --
 
 CREATE TABLE IF NOT EXISTS `business_hours` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `business_id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
   `mon_open` time NOT NULL,
   `mon_close` time NOT NULL,
   `tues_open` time NOT NULL,
@@ -149,7 +179,35 @@ CREATE TABLE IF NOT EXISTS `business_hours` (
   `sun_open` time NOT NULL,
   `sun_close` time NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `business_hours`
+--
+
+INSERT INTO `business_hours` (`id`, `user_id`, `mon_open`, `mon_close`, `tues_open`, `tues_close`, `wed_open`, `wed_close`, `thurs_open`, `thurs_close`, `fri_open`, `fri_close`, `sat_open`, `sat_close`, `sun_open`, `sun_close`) VALUES
+(2, 9, '09:00:00', '17:00:00', '09:00:00', '17:00:00', '09:00:00', '17:00:00', '09:00:00', '20:00:00', '09:00:00', '20:00:00', '09:00:00', '17:00:00', '00:00:00', '00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `countries`
+--
+
+CREATE TABLE IF NOT EXISTS `countries` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `currency_symbol` varchar(5) NOT NULL,
+  `currency_html` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `countries`
+--
+
+INSERT INTO `countries` (`id`, `name`, `currency_symbol`, `currency_html`) VALUES
+(1, 'United Kingdom', '£', '&pound;');
 
 -- --------------------------------------------------------
 
@@ -174,6 +232,71 @@ CREATE TABLE IF NOT EXISTS `plans` (
 
 INSERT INTO `plans` (`id`, `name`, `details`, `price`, `interval_length`, `interval_unit`, `is_active`) VALUES
 (1, 'Appt Test Plan', 'Appt test plan, 19.99 per month, starts after 30 days', '19.99', 1, 'month', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staff`
+--
+
+CREATE TABLE IF NOT EXISTS `staff` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `address` text,
+  `telephone` varchar(15) DEFAULT NULL,
+  `mobile` varchar(15) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `is_manager` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`id`, `user_id`, `first_name`, `last_name`, `email`, `password`, `address`, `telephone`, `mobile`, `dob`, `gender`, `image`, `is_manager`) VALUES
+(1, 9, 'Neal', 'Howarth', 'contact@how-media.co.uk', '5f4dcc3b5aa765d61d8327deb882cf99', '', '01204 123456', '', '1979-04-12', 'Male', '', 1),
+(3, 9, 'Emma Louise', 'Howker', 'emmahowker@tiscali.co.uk', '', '142 Market Street\r\nBury\r\nLancashie\r\nBL8 3LS', '01204 782715', '07777 123456', '1979-10-24', 'Female', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staff_hours`
+--
+
+CREATE TABLE IF NOT EXISTS `staff_hours` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `staff_id` int(10) NOT NULL,
+  `mon_open` time NOT NULL,
+  `mon_close` time NOT NULL,
+  `tues_open` time NOT NULL,
+  `tues_close` time NOT NULL,
+  `wed_open` time NOT NULL,
+  `wed_close` time NOT NULL,
+  `thurs_open` time NOT NULL,
+  `thurs_close` time NOT NULL,
+  `fri_open` time NOT NULL,
+  `fri_close` time NOT NULL,
+  `sat_open` time NOT NULL,
+  `sat_close` time NOT NULL,
+  `sun_open` time NOT NULL,
+  `sun_close` time NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `staff_hours`
+--
+
+INSERT INTO `staff_hours` (`id`, `staff_id`, `mon_open`, `mon_close`, `tues_open`, `tues_close`, `wed_open`, `wed_close`, `thurs_open`, `thurs_close`, `fri_open`, `fri_close`, `sat_open`, `sat_close`, `sun_open`, `sun_close`) VALUES
+(1, 3, '09:00:00', '17:00:00', '09:00:00', '17:00:00', '00:00:00', '00:00:00', '09:00:00', '20:00:00', '09:00:00', '17:00:00', '09:00:00', '17:00:00', '00:00:00', '00:00:00'),
+(2, 1, '09:00:00', '17:00:00', '09:00:00', '17:00:00', '09:00:00', '17:00:00', '09:00:00', '17:00:00', '09:00:00', '17:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00');
 
 -- --------------------------------------------------------
 
