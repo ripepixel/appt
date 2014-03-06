@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="col-lg-9">
 				<div class="panel panel-default">
-					<div class="panel-heading"><h4>My Staff</h4></div>
+					<div class="panel-heading"><h4>My Staff <a href="<?php echo base_url(); ?>staff/create" class="btn btn-success pull-right">Add New</a></h4></div>
 					<div class="panel-body">
 						<?php if($staff) { ?>
 						<table class="table table-striped">

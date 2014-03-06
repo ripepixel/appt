@@ -13,7 +13,7 @@
 			<form action="<?php echo base_url(); ?>staff/save_staff" method="post" class="staff-form">
 				<div class="form-group">
 					<div class="panel panel-default">
-						<div class="panel-heading"><h4>Staff Details</h4></div>
+						<div class="panel-heading"><h4>Staff Details <a href="<?php echo base_url(); ?>staff/" class="btn btn-danger pull-right">Cancel</a></h4></div>
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-lg-12">
@@ -65,7 +65,7 @@
 									<label for="address">Address</label>
 								</div>
 								<div class="col-lg-6">
-									<textarea name="address" id="address" class="form-control"></textarea> 
+									<textarea name="address" id="address" class="form-control" rows="5"></textarea> 
 								</div>
 							</div>
 

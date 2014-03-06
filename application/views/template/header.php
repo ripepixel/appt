@@ -21,7 +21,7 @@
               <a href="<?php echo base_url(); ?>">Appointments</a>
             </li>
             <li>
-              <a href="<?php echo base_url(); ?>">Clients</a>
+              <a href="<?php echo base_url(); ?>clients/">Clients</a>
             </li>
             <li>
               <a href="<?php echo base_url(); ?>settings/">My Business</a>
@@ -59,7 +59,7 @@
               </button>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
+                <li><a href="<?php echo base_url(); ?>clients/">Clients</a></li>
                 <li><a href="<?php echo base_url(); ?>staff/">Staff</a></li>
                 <li class="divider"></li>
                 <li><a href="<?php echo base_url(); ?>settings/">Settings</a></li>

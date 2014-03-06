@@ -66,7 +66,7 @@
 									<label for="address">Address</label>
 								</div>
 								<div class="col-lg-6">
-									<textarea name="address" id="address" class="form-control"><?php echo $staff->address; ?></textarea> 
+									<textarea name="address" id="address" class="form-control" rows="5"><?php echo $staff->address; ?></textarea> 
 								</div>
 							</div>
 
