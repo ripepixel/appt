@@ -135,6 +135,24 @@ div small.error {
     border-bottom-color: #fff;
 }
 
+.mbottom20 {
+    margin-bottom:  20px;
+}
+
+.client_search_list li {
+    list-style: none;
+    margin-top: 5px;
+}
+
+.the-note {
+    padding: 10px 15px;
+    border: 1px solid #999;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    border-radius:7px;
+    margin-bottom: 10px;
+}
+
 /*######################################*/
 /*BUTTONS ############################*/
 /*######################################*/

@@ -29,8 +29,9 @@ $(document).ready(function() {
         });
     });
 
-	$("#clients-table").addTableFilter({
-		labelText: "Search: ",
-	});
+    
+
+
+  
 
 });

@@ -31,10 +31,11 @@ class Users extends CI_Controller {
 			if($validated) {
 				// logged in OK, set session, send to dashboard
 				$data = array(
-					'user_id' => $validated->id,
+					'user_id' => $validated->user_id,
+					'staff_id' => $validated->id,
 					'first_name' => $validated->first_name,
-					'surname' => $validated->surname,
-					'business_name' => $validated->business_name
+					'surname' => $validated->last_name,
+					'is_manager' => $validated->is_manager
 					);
 				$this->session->set_userdata($data);
 				$this->session->set_flashdata('success', 'Signed in successfully :)');
@@ -159,7 +160,7 @@ class Users extends CI_Controller {
 		// if payment successful
 		// get user details, set active = 1, set session data, redirect to their dashboard
 		$this->session->set_flashdata('success', 'Great you have now been signed up. Please log in to get started.');
-		redirect('pages/');
+		redirect('users/signin');
 	}
 	
 	

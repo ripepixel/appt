@@ -19,7 +19,7 @@ class User_model extends CI_Model {
     	$this->db->where('email', $email);
     	$this->db->where('password', $pass);
     	$this->db->where('is_active', 1);
-    	$q = $this->db->get('users');
+    	$q = $this->db->get('staff');
     	if($q->num_rows() == 1) {
     		return $q->row();
     	} else {
@@ -29,7 +29,7 @@ class User_model extends CI_Model {
 
     function isLoggedIn()
     {
-    	if(!$this->session->userdata('user_id')) {
+    	if(!$this->session->userdata('staff_id')) {
     		redirect('users/signin');
     	}
     }

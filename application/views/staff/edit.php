@@ -1,7 +1,7 @@
 <section id="page-title">
     <div class="container">
             <div class="row">
-            <h2>Editing Staff (<?php echo $staff->first_name." ".$staff->last_name; ?>)</h2>
+            <h2>Edit Staff (<?php echo $staff->first_name." ".$staff->last_name; ?>)</h2>
           	</div>
     </div>
 </section>

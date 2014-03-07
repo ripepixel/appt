@@ -50,7 +50,7 @@
           </ul>
            <?php } ?>
 
-          <ul class="nav navbar-nav navbar-right hidden-sm">
+          <ul class="nav navbar-nav navbar-right">
             <li>
             <?php if($this->session->userdata('user_id')) { ?>
             <div class="btn-group">
