@@ -135,8 +135,28 @@ div small.error {
     border-bottom-color: #fff;
 }
 
+.mbottom10 {
+    margin-bottom:  10px;
+}
+
 .mbottom20 {
     margin-bottom:  20px;
+}
+
+.mbottom30 {
+    margin-bottom:  30px;
+}
+
+.mtop10 {
+    margin-top:  10px;
+}
+
+.mtop20 {
+    margin-top:  20px;
+}
+
+.mtop30 {
+    margin-top:  30px;
 }
 
 .client_search_list li {

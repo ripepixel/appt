@@ -58,7 +58,7 @@
                 My Business <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
+                <li><a href="<?php echo base_url(); ?>services/">Services</a></li>
                 <li><a href="<?php echo base_url(); ?>clients/">Clients</a></li>
                 <li><a href="<?php echo base_url(); ?>staff/">Staff</a></li>
                 <li class="divider"></li>

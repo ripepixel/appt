@@ -31,6 +31,13 @@
 						
 						<div class="row mbottom20">
 							<div class="col-lg-2 col-md-3">
+								<strong>Telephone:</strong>
+							</div>
+							<div class="col-lg-3 col-md-3">
+								<?php echo $client->telephone; ?>
+
+							</div>
+							<div class="col-lg-2 col-lg-offset-1 col-md-3">
 								<strong>Date of Birth:</strong>
 							</div>
 							<div class="col-lg-3 col-md-3">
@@ -38,26 +45,20 @@
 								$dob = floor((time() - strtotime($client->dob)) / 31556926); ?>
 								<?php echo date("d/m/Y", strtotime($client->dob)); ?> <br />(<?php echo $dob; ?> years old)
 							</div>
-							<div class="col-lg-2 col-lg-offset-1 col-md-3">
-								<strong>Telephone:</strong>
-							</div>
-							<div class="col-lg-3 col-md-3">
-								<?php echo $client->telephone; ?>
-							</div>
 						</div>
 						
 						<div class="row mbottom20">
 							<div class="col-lg-2 col-md-3">
-								<strong>Gender:</strong>
-							</div>
-							<div class="col-lg-3 col-md-3">
-								<?php echo $client->gender; ?>
-							</div>
-							<div class="col-lg-2 col-lg-offset-1 col-md-3">
 								<strong>Mobile:</strong>
 							</div>
 							<div class="col-lg-3 col-md-3">
 								<?php echo $client->mobile; ?>
+							</div>
+							<div class="col-lg-2 col-lg-offset-1 col-md-3">
+								<strong>Gender:</strong>
+							</div>
+							<div class="col-lg-3 col-md-3">
+								<?php echo $client->gender; ?>
 							</div>
 						</div>
 						

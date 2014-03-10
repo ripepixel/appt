@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 07, 2014 at 04:38 PM
+-- Generation Time: Mar 10, 2014 at 04:37 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `client_notes` (
   `note` text NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=94 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=95 ;
 
 --
 -- Dumping data for table `client_notes`
@@ -239,7 +239,8 @@ CREATE TABLE IF NOT EXISTS `client_notes` (
 
 INSERT INTO `client_notes` (`id`, `client_id`, `staff_id`, `note`, `created_at`) VALUES
 (91, 2, 1, 'Bootstrap includes validation styles for error, warning, and success states on form controls. To use, add .has-warning, .has-error, or .has-success to the parent element. Any .control-label, .form-control, and .help-block within that element will receive the validation styles.', '2014-03-07 16:21:17'),
-(93, 3, 1, 'Bootstrap includes validation styles for error, warning, and success states on form controls. To use, add .has-warning, .has-error, or .has-success to the parent element. Any .control-label, .form-control, and .help-block within that element will receive the validation styles.', '2014-03-07 16:24:56');
+(93, 3, 1, 'Bootstrap includes validation styles for error, warning, and success states on form controls. To use, add .has-warning, .has-error, or .has-success to the parent element. Any .control-label, .form-control, and .help-block within that element will receive the validation styles.', '2014-03-07 16:24:56'),
+(94, 2, 1, 'Bootstrap includes validation styles for error, warning, and success states on form controls. To use, add .has-warning, .has-error, or .has-success to the parent element. Any .control-label, .form-control, and .help-block within that element will receive the validation styles.', '2014-03-10 09:51:32');
 
 -- --------------------------------------------------------
 
@@ -285,6 +286,55 @@ CREATE TABLE IF NOT EXISTS `plans` (
 
 INSERT INTO `plans` (`id`, `name`, `details`, `price`, `interval_length`, `interval_unit`, `is_active`) VALUES
 (1, 'Appt Test Plan', 'Appt test plan, 19.99 per month, starts after 30 days', '19.99', 1, 'month', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `services`
+--
+
+CREATE TABLE IF NOT EXISTS `services` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
+  `service_category_id` int(6) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `details` text NOT NULL,
+  `cost` decimal(8,2) NOT NULL,
+  `sell` decimal(8,2) NOT NULL,
+  `duration` int(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `user_id`, `service_category_id`, `name`, `details`, `cost`, `sell`, `duration`) VALUES
+(1, 9, 1, 'Back Massage', 'Luxury back massage treatment using the finest oils', '12.00', '24.99', 30),
+(5, 9, 2, 'Full Set Acrylic Nails', 'Full Set Acrylic Nails', '15.00', '27.50', 90),
+(6, 9, 1, 'Full Body Massage', 'Full body massage', '12.00', '35.00', 60);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_categories`
+--
+
+CREATE TABLE IF NOT EXISTS `service_categories` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `service_categories`
+--
+
+INSERT INTO `service_categories` (`id`, `user_id`, `name`) VALUES
+(1, 9, 'Massage'),
+(2, 9, 'Nail Treatments'),
+(3, 9, 'Test');
 
 -- --------------------------------------------------------
 
@@ -351,6 +401,28 @@ CREATE TABLE IF NOT EXISTS `staff_hours` (
 INSERT INTO `staff_hours` (`id`, `staff_id`, `mon_open`, `mon_close`, `tues_open`, `tues_close`, `wed_open`, `wed_close`, `thurs_open`, `thurs_close`, `fri_open`, `fri_close`, `sat_open`, `sat_close`, `sun_open`, `sun_close`) VALUES
 (1, 3, '09:00:00', '17:00:00', '09:00:00', '17:00:00', '00:00:00', '00:00:00', '09:00:00', '20:00:00', '09:00:00', '17:00:00', '09:00:00', '17:00:00', '00:00:00', '00:00:00'),
 (2, 1, '09:00:00', '17:00:00', '09:00:00', '17:00:00', '09:00:00', '17:00:00', '09:00:00', '17:00:00', '09:00:00', '17:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staff_services`
+--
+
+CREATE TABLE IF NOT EXISTS `staff_services` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `staff_id` int(10) NOT NULL,
+  `service_id` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `staff_services`
+--
+
+INSERT INTO `staff_services` (`id`, `staff_id`, `service_id`) VALUES
+(4, 3, 5),
+(5, 3, 6),
+(6, 1, 6);
 
 -- --------------------------------------------------------
 
