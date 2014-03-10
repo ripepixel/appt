@@ -90,6 +90,32 @@
 									</select> 
 								</div>
 							</div>
+							
+							<div class="row">
+								<div class="col-lg-12">
+									<label>Email Reminders</label>
+								</div>
+								<div class="col-lg-12">
+									<div class="checkbox">
+										<label for="email_reminders">
+										<input type="checkbox" name="email_reminders" id="email_reminders" /> Does the client want to receive email reminders for their appointments?
+										</label>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-lg-12">
+									<label>Marketing Emails</label>
+								</div>
+								<div class="col-lg-12">
+									<div class="checkbox">
+										<label for="marketing_emails">
+										<input type="checkbox" name="marketing_emails" id="marketing_emails" /> Does the client want to receive emails for special offers and promotions?
+										</label>
+									</div>
+								</div>
+							</div>
 
 						</div>
 					</div>

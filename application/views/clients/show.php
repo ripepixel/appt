@@ -62,6 +62,21 @@
 							</div>
 						</div>
 						
+						<div class="row mbottom20">
+							<div class="col-lg-2 col-md-3">
+								<strong>Email Reminders:</strong>
+							</div>
+							<div class="col-lg-3 col-md-3">
+								<?php $er = ($client->email_reminders == 1) ? "On" : "Off"; echo $er; ?>
+							</div>
+							<div class="col-lg-2 col-lg-offset-1 col-md-3">
+								<strong>Marketing Emails:</strong>
+							</div>
+							<div class="col-lg-3 col-md-3">
+								<?php $me = ($client->marketing_emails == 1) ? "On" : "Off"; echo $me; ?>
+							</div>
+						</div>
+						
 					</div>
 				</div>
 

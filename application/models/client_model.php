@@ -22,12 +22,13 @@ class Client_model extends CI_Model {
 
 		function getFilteredClients($term)
     {
-		$this->db->where('user_id', $this->session->userdata('user_id'));
+				$this->db->where('user_id', $this->session->userdata('user_id'));
         $this->db->like('first_name', $term);
-		$this->db->or_like('last_name', $term);
-        $this->db->order_by('first_name', 'ASC')       ;
-    	$q = $this->db->get('clients');
-    	return $q->result_array();
+				$this->db->or_like('last_name', $term);
+				$this->db->or_like('address', $term);
+        $this->db->order_by('first_name', 'ASC');
+    		$q = $this->db->get('clients');
+    		return $q->result_array();
     }
 		
 		function saveClient($data)

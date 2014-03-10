@@ -131,6 +131,11 @@ class Settings extends CI_Controller {
 		redirect('settings/opening_hours');
 	}
 	
+	public function emails()
+	{
+		$data['main'] = 'settings/emails';	
+		$this->load->view('back_template/template', $data);
+	}
 	
 	
 }

@@ -91,6 +91,35 @@
 									</select> 
 								</div>
 							</div>
+							
+							<div class="row">
+								<div class="col-lg-12">
+									<label>Email Reminders</label>
+								</div>
+								<div class="col-lg-12">
+									<div class="checkbox">
+										<label for="email_reminders">
+											<?php $er = ($client->email_reminders == 1) ? "checked" : ""; ?>
+										<input type="checkbox" name="email_reminders" id="email_reminders" <?php echo $er; ?> /> Does the client want to receive email reminders for their appointments?
+										</label>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-lg-12">
+									<label>Marketing Emails</label>
+								</div>
+								<div class="col-lg-12">
+									<div class="checkbox">
+										<label for="marketing_emails">
+											<?php $me = ($client->marketing_emails == 1) ? "checked" : ""; ?>
+										<input type="checkbox" name="marketing_emails" id="marketing_emails" <?php echo $me; ?> /> Does the client want to receive emails for special offers and promotions?
+										</label>
+									</div>
+								</div>
+							</div>
+							
 							<input type="hidden" name="client_id" id="client_id" value="<?php echo $client->id; ?>" />
 						</div>
 					</div>

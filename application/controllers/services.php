@@ -50,7 +50,6 @@ class Services extends CI_Controller {
 
 		// create staff services
 		$staff = $this->input->post('staff');
-		print_r($staff);
 		foreach($staff as $key => $value) {
 			if($value == 'on') {
 				$data = array(
@@ -83,6 +82,41 @@ class Services extends CI_Controller {
 			$this->load->view('back_template/template', $data);
 		}
 	}
+	
+	public function update_service()
+	{
+		$sid = $this->input->post('service_id');
+		$data = array(
+			'user_id' => $this->session->userdata('user_id'),
+			'service_category_id' => $this->input->post('service_cat'),
+			'name' => $this->input->post('name'),
+			'details' => $this->input->post('details'),
+			'cost' => $this->input->post('cost'),
+			'sell' => $this->input->post('sell'),
+			'duration' => $this->input->post('duration'),
+			);
+		$this->Service_model->updateService($sid, $data);
+
+
+		// delete old staff services for service_id
+		$this->Service_model->deleteStaffServicesByService($sid);
+		
+		// create staff services
+		$staff = $this->input->post('staff');
+		foreach($staff as $key => $value) {
+			if($value == 'on') {
+				$data = array(
+					'service_id' => $sid,
+					'staff_id' => $key
+					);
+				$this->Service_model->saveStaffServices($data);
+			}
+		}
+
+
+		$this->session->set_flashdata('success', 'Your service has been updated.');
+		redirect('services/');
+	}
 
 
 
@@ -94,6 +128,13 @@ class Services extends CI_Controller {
 
 	/* Service Categories */
 
+	public function service_categories()
+	{
+		$data['service_cats'] = $this->Service_model->getBusinessServiceCategories($this->session->userdata('user_id'));
+		$data['main'] = 'services/service_categories';
+		$this->load->view('back_template/template', $data);
+	}
+	
 	public function create_service_category()
 	{
 		$data['main'] = 'services/create_service_category';

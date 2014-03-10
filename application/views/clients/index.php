@@ -49,11 +49,12 @@
 				<div class="panel panel-default">
 					<div class="panel-heading"><h4>Search Clients</h4></div>
 					<div class="panel-body">
-						<input type="text" name="client-search" id="client-search" class="form-control" onkeyup="lookup();" placeholder="Enter first or last name" />
+						<input type="text" name="client-search" id="client-search" class="form-control" onkeyup="lookup();" placeholder="Enter search terms" />
 						<div id="suggestions">
 						    <div class="client_search_list" id="autoSuggestionsList">    
 						    </div>
 						</div>
+						<small id="search-help">You can search by first name, last name or address.</small>
 					</div>
 				</div>
 
@@ -76,9 +77,11 @@
 		var inputString = document.getElementById('client-search').value;
         if(inputString.length < 2) {
             $('#suggestions').hide();
+						$('#search-help').show();
         } else {
             $.post("<?php echo base_url(); ?>clients/filter_clients", {queryString: ""+inputString+""}, function(data){
                 if(data.length > 0) {
+										$('#search-help').hide();
                     $('#suggestions').show();
                     $('#autoSuggestionsList').html(data);
                 }

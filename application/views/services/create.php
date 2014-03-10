@@ -54,7 +54,7 @@
 									<label for="duration">Duration</label>
 								</div>
 								<div class="col-lg-3">
-									<input type="text" name="duration" id="duration" class="form-control" required />
+									<input type="number" name="duration" id="duration" class="form-control" required />
 									<p class="help-block">Enter a length of time in minutes</p>
 								</div>
 							</div>
@@ -62,12 +62,12 @@
 							<div class="row">
 								<div class="col-lg-4">
 									<label for="cost">Cost</label>
-									<input type="text" name="cost" id="cost" class="form-control" />
+									<input type="number" name="cost" id="cost" class="form-control" number />
 									<p class="help-block">How much the service costs you to provide</p>
 								</div>
 								<div class="col-lg-4">
 									<label for="sell">Sell Price</label>
-									<input type="text" name="sell" id="sell" class="form-control" required />
+									<input type="number" name="sell" id="sell" class="form-control" required number />
 									<p class="help-block">How much you sell the service for</p>
 								</div>
 							</div>

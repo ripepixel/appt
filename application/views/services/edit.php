@@ -10,7 +10,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-			<form action="<?php echo base_url(); ?>services/save_service" method="post" class="staff-form" id="service-form">
+			<form action="<?php echo base_url(); ?>services/update_service" method="post" class="staff-form" id="service-form">
 				<div class="form-group">
 					<div class="panel panel-default">
 						<div class="panel-heading"><h4>Edit Service <a href="<?php echo base_url(); ?>services/" class="btn btn-danger pull-right">Cancel</a></h4></div>
@@ -55,7 +55,7 @@
 									<label for="duration">Duration</label>
 								</div>
 								<div class="col-lg-3">
-									<input type="text" name="duration" id="duration" class="form-control" value="<?php echo $service->duration; ?>" required />
+									<input type="number" name="duration" id="duration" class="form-control" value="<?php echo $service->duration; ?>" required number />
 									<p class="help-block">Enter a length of time in minutes</p>
 								</div>
 							</div>
@@ -63,12 +63,12 @@
 							<div class="row">
 								<div class="col-lg-4">
 									<label for="cost">Cost</label>
-									<input type="text" name="cost" id="cost" class="form-control" value="<?php echo $service->cost; ?>" />
+									<input type="number" name="cost" id="cost" class="form-control" value="<?php echo $service->cost; ?>" number />
 									<p class="help-block">How much the service costs you to provide</p>
 								</div>
 								<div class="col-lg-4">
 									<label for="sell">Sell Price</label>
-									<input type="text" name="sell" id="sell" class="form-control" value="<?php echo $service->sell; ?>" required />
+									<input type="number" name="sell" id="sell" class="form-control" value="<?php echo $service->sell; ?>" required number />
 									<p class="help-block">How much you sell the service for</p>
 								</div>
 							</div>
@@ -97,7 +97,7 @@
 									<?php
 									}
 									?>
-									
+									<input type="hidden" name="service_id" id="service_id" value="<?php echo $service->id; ?>" />
 							</div>
 						</div>
 					</div>

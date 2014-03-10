@@ -28,6 +28,7 @@
     <script src="<?php echo base_url(); ?>js/fullcalendar.js"></script>
     <script src="<?php echo base_url(); ?>js/bootstrap-datepicker.js"></script>
     <script src="<?php echo base_url(); ?>js/bootstrap-dropdown.js"></script>
+		<script src="<?php echo base_url(); ?>js/bootstrap-switch.min.js"></script>
     <script src="<?php echo base_url(); ?>js/jquery-ui-1.10.4.custom.min.js"></script>
 		<!-- <script src="<?php echo base_url(); ?>js/jquery.table-filter.js"></script> -->
     <script type="text/javascript">

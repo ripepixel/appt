@@ -29,6 +29,8 @@ class Clients extends CI_Controller {
 	
 	public function save_client()
 	{
+		$er = ($this->input->post('email_reminders') == 'on') ? 1 : 0;
+		$me = ($this->input->post('marketing_emails') == 'on') ? 1 : 0;
 		$data = array(
 			'user_id' => $this->session->userdata('user_id'),
 			'first_name' => $this->input->post('first_name'),
@@ -39,6 +41,8 @@ class Clients extends CI_Controller {
 			'address' => $this->input->post('address'),
 			'dob' => date('Y-m-d', strtotime($this->input->post('dob'))),
 			'gender' => $this->input->post('gender'),
+			'email_reminders' => $er,
+			'marketing_emails' => $me
 			);
 
 		$client = $this->Client_model->saveClient($data);
@@ -64,6 +68,8 @@ class Clients extends CI_Controller {
 	
 	public function update_client()
 	{
+		$er = ($this->input->post('email_reminders') == 'on') ? 1 : 0;
+		$me = ($this->input->post('marketing_emails') == 'on') ? 1 : 0;
 		$data = array(
 			'first_name' => $this->input->post('first_name'),
 			'last_name' => $this->input->post('last_name'),
@@ -73,6 +79,8 @@ class Clients extends CI_Controller {
 			'address' => $this->input->post('address'),
 			'dob' => date('Y-m-d', strtotime($this->input->post('dob'))),
 			'gender' => $this->input->post('gender'),
+			'email_reminders' => $er,
+			'marketing_emails' => $me
 			);
 
 		$client = $this->Client_model->updateClient($this->input->post('client_id'), $data);

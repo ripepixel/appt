@@ -517,6 +517,10 @@ form.opening-hours .form-group {
     margin-bottom: 60px;
 }
 
+form.opening-hours .row {
+	margin-bottom: 20px;
+}
+
 
 #about {
     padding-top:6.5rem;

@@ -69,6 +69,14 @@ class Service_model extends CI_Model {
     	return $row2->name;
     }
 
+		function getServiceCountForCategory($sid, $uid)
+		{
+			$this->db->where('service_category_id', $sid);
+			$this->db->where('user_id', $uid);
+			$q = $this->db->get('services');
+			return $q->num_rows();
+		}
+
     function getServiceCategoryByName($name)
     {
     	$this->db->where('name', $name);
@@ -98,6 +106,13 @@ class Service_model extends CI_Model {
     	return $this->db->insert_id();
     }
 
+		function updateService($sid, $data)
+		{
+			$this->db->where('id', $sid);
+			$this->db->update('services', $data);
+			return TRUE;
+		}
+
 
 
 
@@ -124,5 +139,17 @@ class Service_model extends CI_Model {
     	$q = $this->db->get('staff_services');
     	return $q->result_array();
     }
+
+		function deleteStaffServicesByService($sid)
+		{
+			$this->db->where('service_id', $sid);
+			$q = $this->db->get('staff_services');
+			$staff_services = $q->result_array();
+			
+			foreach($staff_services as $ss) {
+				$this->db->where('id', $ss['id']);
+				$this->db->delete('staff_services');
+			}
+		}
 
 }
