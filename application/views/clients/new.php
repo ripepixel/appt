@@ -139,5 +139,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#client-form').validate();
+		$("[name='email_reminders']").bootstrapSwitch();
+		$("[name='marketing_emails']").bootstrapSwitch();
 	});
 </script>

@@ -133,8 +133,59 @@ class Settings extends CI_Controller {
 	
 	public function emails()
 	{
-		$data['main'] = 'settings/emails';	
+		// check if has email settings
+		$has_email_set = $this->Setting_model->hasEmailSettings($this->session->userdata('user_id'));
+		if($has_email_set) {
+			// show edit
+			$data['es'] = $has_email_set;
+			$data['main'] = 'settings/edit_emails';	
+		} else {
+			// show new
+			$data['main'] = 'settings/emails';	
+		}
+		
 		$this->load->view('back_template/template', $data);
+	}
+	
+	public function save_email_settings()
+	{
+		if(isset($_POST['email_reminders'])) {
+			$email_reminders = 1;
+		} else {
+			$email_reminders = 0;
+		}
+		
+		$data = array(
+			'user_id' => $this->session->userdata('user_id'),
+			'email_reminders' => $email_reminders,
+			'hours_before' => $this->input->post('hours_before'),
+			'reminder_email' => $this->input->post('reminder_email')
+		);
+		
+		$this->Setting_model->saveEmailSettings($data);
+		
+		$this->session->set_flashdata('success', 'Your email settings have been saved.');
+		redirect('settings/emails');
+	}
+	
+	public function update_email_settings()
+	{
+		if(isset($_POST['email_reminders'])) {
+			$email_reminders = 1;
+		} else {
+			$email_reminders = 0;
+		}
+		
+		$data = array(
+			'email_reminders' => $email_reminders,
+			'hours_before' => $this->input->post('hours_before'),
+			'reminder_email' => $this->input->post('reminder_email')
+		);
+		
+		$this->Setting_model->updateEmailSettings($this->session->userdata('user_id'), $data);
+		
+		$this->session->set_flashdata('success', 'Your email settings have been updated.');
+		redirect('settings/emails');
 	}
 	
 	

@@ -77,4 +77,24 @@ class Setting_model extends CI_Model {
         return TRUE;
     }
 
+		function saveEmailSettings($data)
+		{
+			$this->db->insert('email_settings', $data);
+			return TRUE;
+		}
+		
+		function updateEmailSettings($uid, $data)
+		{
+			$this->db->where('user_id', $uid);
+			$this->db->update('email_settings', $data);
+			return TRUE;
+		}
+		
+		function hasEmailSettings($uid)
+		{
+			$this->db->where('user_id', $uid);
+			$q = $this->db->get('email_settings');
+			return $q->row();
+		}
+
 }
