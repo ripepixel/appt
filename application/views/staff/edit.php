@@ -290,6 +290,37 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading"><h4>Staff Services</h4></div>
+						<div class="panel-body">
+						<p>Select all the services that this member of staff can perform.</p>
+						<?php 
+						$staff_services = $this->Service_model->getStaffServices($staff->id);
+						foreach ($services as $service) { 
+							if($staff_services) {
+								$checked = ($this->General_model->findNeedleInHaystack($staff_services, $service['id'], 'service_id') == TRUE) ? "checked" : "";
+							} else {
+								$checked = '';
+							}
+							?>
+							<div class="col-lg-3">
+									<div class="checkbox">
+										<label for="<?php echo $service['id']; ?>">
+										<input type="checkbox" name="service[]" value="<?php echo $service['id']; ?>" id="<?php echo $service['id']; ?>" <?php echo $checked; ?> /> <?php echo $service['name']; ?>
+										</label>
+									</div>
+								</div>
+						<?php } ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="form-group">

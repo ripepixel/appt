@@ -20,7 +20,7 @@ class Client_model extends CI_Model {
     	}
     }
 
-		function getFilteredClients($term)
+	function getFilteredClients($term)
     {
 				$this->db->where('user_id', $this->session->userdata('user_id'));
         $this->db->like('first_name', $term);

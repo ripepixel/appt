@@ -31,7 +31,7 @@
 									<td><?php $cat_name = $this->Service_model->getServiceCategoryName($serv['id']); echo $cat_name; ?></td>
 									<td><?php $curr = $this->General_model->getBusinessCurrency($this->session->userdata('user_id')); echo $curr->currency_html.$serv['sell']; ?></td>
 									<td><?php $dur = $this->General_model->convertDuration($serv['duration']); echo $dur; ?></td>
-									<td><a href="<?php echo base_url(); ?>services/edit/<?php echo $serv['id']; ?>" class="btn btn-success">Edit</a> <a href="" class="btn btn-primary">View</a></td>
+									<td><a href="<?php echo base_url(); ?>services/edit/<?php echo $serv['id']; ?>" class="btn btn-success"><i class="fa fa-pencil"></i></a> <a href="" class="btn btn-primary"><i class="fa fa-search"></i></a></td>
 								</tr>
 								<?php } ?>
 							</tbody>
@@ -46,12 +46,24 @@
 			</div>
 			<div class="col-lg-3">
 				<div class="panel panel-default">
+					<div class="panel-heading"><h4>Search Services</h4></div>
+					<div class="panel-body">
+						<input type="text" name="service-search" id="service-search" class="form-control" onkeyup="lookup();" placeholder="Enter search terms" />
+						<div id="suggestions">
+						    <div class="service_search_list" id="autoSuggestionsList">    
+						    </div>
+						</div>
+						<small id="search-help">You can search by first name, last name or address.</small>
+					</div>
+				</div>
+
+				<!-- <div class="panel panel-default">
 					<div class="panel-heading"><h4>Services</h4></div>
 					<div class="panel-body">
 						<p>Add the services you will provide to your clients.</p>
 						<p class="text-center"><a href="<?php echo base_url(); ?>services/create" class="cta2">Add New Service</a></p>
 					</div>
-				</div>
+				</div> -->
 
 				<div class="panel panel-default">
 					<div class="panel-heading"><h4>Service Categories <a href="<?php echo base_url(); ?>services/service_categories" class="btn btn-primary pull-right">View</a></h4></div>
@@ -77,3 +89,27 @@
 		</div>
 	</div>
 </section>
+
+<script type="text/javascript">
+	function lookup() {
+		var inputString = document.getElementById('service-search').value;
+        if(inputString.length < 2) {
+            $('#suggestions').hide();
+						$('#search-help').show();
+        } else {
+            $.post("<?php echo base_url(); ?>services/filter_services", {queryString: ""+inputString+""}, function(data){
+                if(data.length > 0) {
+					$('#search-help').hide();
+                    $('#suggestions').show();
+                    $('#autoSuggestionsList').html(data);
+                }
+            });
+        }
+    }
+
+    function fill(thisValue) {
+        $('#service-search').val(thisValue);
+        setTimeout("$('#suggestions').hide();", 200);
+    } 
+
+</script>

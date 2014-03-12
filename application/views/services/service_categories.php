@@ -29,7 +29,7 @@
 									<td><?php $sc_count = $this->Service_model->getServiceCountForCategory($sc['id'], $this->session->userdata('user_id')); 
 									$svs_txt = ($sc_count == 1) ? " Service" : " Services";
 									echo $sc_count. $svs_txt; ?></td>
-									<td><a href="<?php echo base_url(); ?>services/edit_service_category/<?php echo $sc['id']; ?>" class="btn btn-success">Edit</a></td>
+									<td><a href="<?php echo base_url(); ?>services/edit_service_category/<?php echo $sc['id']; ?>" class="btn btn-success"><i class="fa fa-pencil"></i></a></td>
 								</tr>
 								<?php } ?>
 							</tbody>

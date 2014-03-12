@@ -118,7 +118,14 @@ class Services extends CI_Controller {
 		redirect('services/');
 	}
 
-
+	function filter_services(){
+	    $term = $this->input->post('queryString');
+	    $services = $this->Service_model->getFilteredServices($term);
+	    foreach($services as $service) {
+	    	echo "<li id='".$service['id']."'><a href='".base_url()."services/show/".$service['id']."'>".$service['name']."</a></li>";
+	    }
+	    
+	}
 
 
 

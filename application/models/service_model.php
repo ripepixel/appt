@@ -44,6 +44,16 @@ class Service_model extends CI_Model {
     	}
     }
 
+    function getFilteredServices($term)
+    {
+        $this->db->where('user_id', $this->session->userdata('user_id'));
+        $this->db->like('name', $term);
+        $this->db->or_like('details', $term);
+        $this->db->order_by('name', 'ASC');
+        $q = $this->db->get('services');
+        return $q->result_array();
+    }
+
     function getBusinessServiceCategories($uid)
     {
     	$this->db->where('user_id', $uid);
@@ -140,16 +150,30 @@ class Service_model extends CI_Model {
     	return $q->result_array();
     }
 
-		function deleteStaffServicesByService($sid)
-		{
-			$this->db->where('service_id', $sid);
-			$q = $this->db->get('staff_services');
-			$staff_services = $q->result_array();
-			
-			foreach($staff_services as $ss) {
-				$this->db->where('id', $ss['id']);
-				$this->db->delete('staff_services');
-			}
-		}
+    function getStaffServices($sid)
+    {
+        # get all staff for a given service
+        $this->db->select('service_id');
+        $this->db->where('staff_id', $sid);
+        $q = $this->db->get('staff_services');
+        return $q->result_array();
+    }
 
+	function deleteStaffServicesByService($sid)
+	{
+		$this->db->where('service_id', $sid);
+		$q = $this->db->get('staff_services');
+		$staff_services = $q->result_array();
+			
+		foreach($staff_services as $ss) {
+			$this->db->where('id', $ss['id']);
+			$this->db->delete('staff_services');
+		}
+	}
+
+    function deleteAllStaffServices($sid) {
+        $this->db->where('staff_id', $sid);
+        $q = $this->db->delete('staff_services');
+        return TRUE;
+    }
 }

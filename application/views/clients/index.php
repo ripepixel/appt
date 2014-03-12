@@ -31,7 +31,7 @@
 									<td><?php echo $clnt['last_name']; ?></td>
 									<td><?php echo $clnt['telephone']; ?></td>
 									<td><?php echo $clnt['mobile']; ?></td>
-									<td><a href="<?php echo base_url(); ?>clients/edit/<?php echo $clnt['id']; ?>" class="btn btn-success">Edit</a> <a href="<?php echo base_url(); ?>clients/show/<?php echo $clnt['id']; ?>" class="btn btn-primary">View</a></td>
+									<td><a href="<?php echo base_url(); ?>clients/edit/<?php echo $clnt['id']; ?>" class="btn btn-success"><i class="fa fa-pencil"></i></a> <a href="<?php echo base_url(); ?>clients/show/<?php echo $clnt['id']; ?>" class="btn btn-primary"><i class="fa fa-search"></i></a> <a href="<?php echo base_url(); ?>clients/show/<?php echo $clnt['id']; ?>" class="btn btn-info"><i class="fa fa-calendar"></i></a></td>
 								</tr>
 								<?php } ?>
 							</tbody>

@@ -37,6 +37,7 @@ class General_model extends CI_Model {
     	return $duration;
     }
 
+    // search multidimensional array
     function findNeedleInHaystack($haystack, $needle, $what)
     {
         foreach($haystack as $key => $value) {

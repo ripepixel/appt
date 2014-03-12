@@ -8,6 +8,7 @@ class Staff extends CI_Controller {
 		$this->load->model('User_model');
 		$this->User_model->isLoggedIn();
 		$this->load->model('Staff_model');
+		$this->load->model('Service_model');
 	}
 
 
@@ -78,6 +79,8 @@ class Staff extends CI_Controller {
 		if($staff) {
 			$data['staff'] = $staff;
 			$data['hours'] = $this->Staff_model->getStaffHours($staff->id);
+			$this->load->model('Service_model');
+			$data['services'] = $this->Service_model->getBusinessServices($this->session->userdata('user_id'));
 			$data['main'] = 'staff/edit';	
 			$this->load->view('back_template/template', $data);
 		} else {
@@ -122,6 +125,23 @@ class Staff extends CI_Controller {
 			);
 
 		$this->Staff_model->updateStaffHours($this->input->post('staff_id'), $hour_data);
+
+		// delete all staff services
+		$this->Service_model->deleteAllStaffServices($this->input->post('staff_id'));
+		
+		// save staff services
+		$service = $_POST['service'];
+		foreach($service as $serv) {
+			// if on then add, if off then delete staff_service
+			$data = array(
+				'staff_id' => $this->input->post('staff_id'),
+				'service_id' => $serv
+				);
+
+			$this->Service_model->saveStaffServices($data);
+
+		}
+		
 
 		$this->session->set_flashdata('success', 'Your staff member has been updated.');
 		redirect('staff/');

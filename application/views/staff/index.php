@@ -14,7 +14,7 @@
 					<div class="panel-heading"><h4>My Staff <a href="<?php echo base_url(); ?>staff/create" class="btn btn-success pull-right">Add New</a></h4></div>
 					<div class="panel-body">
 						<?php if($staff) { ?>
-						<table class="table table-striped">
+						<table class="table table-striped table-responsive">
 							<thead>
 								<tr>
 									<th>First Name</th>
@@ -31,7 +31,7 @@
 									<td><?php echo $stf['last_name']; ?></td>
 									<td><?php echo $stf['telephone']; ?></td>
 									<td><?php echo $stf['mobile']; ?></td>
-									<td><a href="<?php echo base_url(); ?>staff/edit/<?php echo $stf['id']; ?>" class="btn btn-success">Edit</a> <a href="" class="btn btn-primary">View</a></td>
+									<td><a href="<?php echo base_url(); ?>staff/edit/<?php echo $stf['id']; ?>" class="btn btn-success"><i class="fa fa-pencil"></i></a> <a href="" class="btn btn-primary"><i class="fa fa-search"></i></a></td>
 								</tr>
 								<?php } ?>
 							</tbody>
