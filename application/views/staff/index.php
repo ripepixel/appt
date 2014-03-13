@@ -31,7 +31,7 @@
 									<td><?php echo $stf['last_name']; ?></td>
 									<td><?php echo $stf['telephone']; ?></td>
 									<td><?php echo $stf['mobile']; ?></td>
-									<td><a href="<?php echo base_url(); ?>staff/edit/<?php echo $stf['id']; ?>" class="btn btn-success"><i class="fa fa-pencil"></i></a> <a href="" class="btn btn-primary"><i class="fa fa-search"></i></a></td>
+									<td><a href="<?php echo base_url(); ?>staff/edit/<?php echo $stf['id']; ?>" class="btn btn-success"><i class="fa fa-pencil"></i></a> <a href="<?php echo base_url(); ?>staff/show/<?php echo $stf['id']; ?>" class="btn btn-primary"><i class="fa fa-search"></i></a></td>
 								</tr>
 								<?php } ?>
 							</tbody>

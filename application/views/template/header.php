@@ -1,5 +1,34 @@
 <header id="header" class="navbar navbar-inverse navbar-fixed-top" role="banner">
       <div class="container">
+      <?php
+      if ($this->session->flashdata('success')) {
+          echo "<div id='fadeout'>";
+          echo "<section id='alerts'>";
+          echo "<div class='container'>";
+          echo "<div class='row'>";
+          echo '<div class="span8 offset4">';
+            echo "<div class='alert alert-success alert-dismissable'>";
+            echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+              echo $this->session->flashdata('success');
+            echo "</div>";
+          echo "</div>";
+          echo "</div></div></section>";
+          echo "</div>";
+      }
+
+      if ($this->session->flashdata('error')) {
+        echo "<section id='alerts'>";
+        echo "<div class='container'>";
+        echo "<div class='row'>";
+          echo '<div class="span8 offset4">';
+            echo "<div class='alert alert-danger alert-dismissable'>";
+            echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+              echo $this->session->flashdata('error');
+            echo "</div>";
+          echo "</div>";
+          echo "</div></div></section>";
+      }
+    ?>
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -76,32 +105,4 @@
       </div>
     </header>
 
-		<?php
-			if ($this->session->flashdata('success')) {
-					echo "<div id='fadeout'>";
-          echo "<section id='alerts'>";
-					echo "<div class='container'>";
-					echo "<div class='row'>";
-					echo '<div class="span8 offset4">';
-						echo "<div class='alert alert-success alert-dismissable'>";
-						echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-							echo $this->session->flashdata('success');
-						echo "</div>";
-					echo "</div>";
-					echo "</div></div></section>";
-          echo "</div>";
-			}
-
-			if ($this->session->flashdata('error')) {
-				echo "<section id='alerts'>";
-				echo "<div class='container'>";
-				echo "<div class='row'>";
-					echo '<div class="span8 offset4">';
-						echo "<div class='alert alert-danger alert-dismissable'>";
-						echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-							echo $this->session->flashdata('error');
-						echo "</div>";
-					echo "</div>";
-					echo "</div></div></section>";
-			}
-		?>
+		

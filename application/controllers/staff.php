@@ -20,6 +20,26 @@ class Staff extends CI_Controller {
 		$this->load->view('back_template/template', $data);
 	}
 
+	public function show()
+	{
+		$staff_id = $this->uri->segment(3);
+		// check staff belongs to user
+		$staff = $this->Staff_model->getStaffMember($this->uri->segment(3), $this->session->userdata('user_id'));
+		if($staff) {
+			$data['staff'] = $staff;
+			$data['hours'] = $this->Staff_model->getStaffHours($staff->id);
+			$this->load->model('Service_model');
+			$data['services'] = $this->Service_model->getBusinessServices($this->session->userdata('user_id'));
+			$data['main'] = 'staff/show';	
+			$this->load->view('back_template/template', $data);
+		} else {
+			// staff does not exist or for wrong user
+			$this->session->set_flashdata('error', 'There was a problem getting the staff details.');
+			redirect('staff/');
+		}
+
+	}
+
 	public function create()
 	{
 		//$this->load->model('Setting_model');
