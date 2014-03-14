@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 12, 2014 at 04:42 PM
+-- Generation Time: Mar 14, 2014 at 03:48 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -15,6 +15,28 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `appt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `appt`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `appointments`
+--
+
+CREATE TABLE IF NOT EXISTS `appointments` (
+  `id` int(30) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
+  `staff_id` int(10) NOT NULL,
+  `client_id` int(10) NOT NULL,
+  `service_id` int(10) NOT NULL,
+  `date` date NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  `service_name` varchar(255) NOT NULL,
+  `price` decimal(8,2) NOT NULL,
+  `deposit_amount` decimal(8,2) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -301,6 +323,7 @@ CREATE TABLE IF NOT EXISTS `plans` (
   `price` decimal(8,2) NOT NULL,
   `interval_length` int(2) NOT NULL,
   `interval_unit` varchar(20) NOT NULL,
+  `free_days` int(3) DEFAULT NULL,
   `is_active` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
@@ -309,8 +332,8 @@ CREATE TABLE IF NOT EXISTS `plans` (
 -- Dumping data for table `plans`
 --
 
-INSERT INTO `plans` (`id`, `name`, `details`, `price`, `interval_length`, `interval_unit`, `is_active`) VALUES
-(1, 'Appt Test Plan', 'Appt test plan, 19.99 per month, starts after 30 days', '19.99', 1, 'month', 1);
+INSERT INTO `plans` (`id`, `name`, `details`, `price`, `interval_length`, `interval_unit`, `free_days`, `is_active`) VALUES
+(1, 'Appt Test Plan', 'Appt test plan, 19.99 per month, starts after 30 days', '19.99', 1, 'month', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -392,7 +415,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
 
 INSERT INTO `staff` (`id`, `user_id`, `first_name`, `last_name`, `email`, `password`, `address`, `telephone`, `mobile`, `dob`, `gender`, `image`, `is_manager`, `is_active`) VALUES
 (1, 9, 'Neal', 'Howarth', 'contact@how-media.co.uk', '5f4dcc3b5aa765d61d8327deb882cf99', '', '01204 123456', '', '1979-04-12', 'Male', '', 1, 1),
-(3, 9, 'Emma Louise', 'Howker', 'emmahowker@tiscali.co.uk', '', '142 Market Street\r\nBury\r\nLancashie\r\nBL8 3LS', '01204 782715', '07777 123456', '1979-10-24', 'Female', NULL, 0, 1);
+(3, 9, 'Emma', 'Howker', 'emmahowker@tiscali.co.uk', '', '142 Market Street\r\nBury\r\nLancashie\r\nBL8 3LS', '01204 782715', '07777 123456', '1979-10-24', 'Female', NULL, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -439,17 +462,17 @@ CREATE TABLE IF NOT EXISTS `staff_services` (
   `staff_id` int(10) NOT NULL,
   `service_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `staff_services`
 --
 
 INSERT INTO `staff_services` (`id`, `staff_id`, `service_id`) VALUES
-(23, 3, 1),
-(24, 3, 8),
 (25, 1, 1),
-(26, 1, 6);
+(26, 1, 6),
+(27, 3, 1),
+(28, 3, 8);
 
 -- --------------------------------------------------------
 

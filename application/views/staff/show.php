@@ -54,8 +54,48 @@
 				<div class="panel panel-default">
 					<div class="panel-heading"><h4>Staff Hours</h4></div>
 					<div class="panel-body">
-							
-
+						<div class="row">
+							<div class="col-lg-4"><strong>Monday</strong></div>							
+							<div class="col-lg-2"><?php $this->Staff_model->displayStaffHours($hours->mon_open); ?></div>
+							<div class="col-lg-1"><p class="text-center">-</p></div>
+							<div class="col-lg-3"><?php $this->Staff_model->displayStaffHours($hours->mon_close); ?></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4"><strong>Tuesday</strong></div>
+							<div class="col-lg-2"><?php $this->Staff_model->displayStaffHours($hours->tues_open); ?></div>
+							<div class="col-lg-1"><p class="text-center">-</p></div>
+							<div class="col-lg-3"><?php $this->Staff_model->displayStaffHours($hours->tues_close); ?></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4"><strong>Wednesday</strong></div>
+							<div class="col-lg-2"><?php $this->Staff_model->displayStaffHours($hours->wed_open); ?></div>
+							<div class="col-lg-1"><p class="text-center">-</p></div>
+							<div class="col-lg-3"><?php $this->Staff_model->displayStaffHours($hours->wed_close); ?></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4"><strong>Thursday</strong></div>
+							<div class="col-lg-2"><?php $this->Staff_model->displayStaffHours($hours->thurs_open); ?></div>
+							<div class="col-lg-1"><p class="text-center">-</p></div>
+							<div class="col-lg-3"><?php $this->Staff_model->displayStaffHours($hours->thurs_close); ?></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4"><strong>Friday</strong></div>
+							<div class="col-lg-2"><?php $this->Staff_model->displayStaffHours($hours->fri_open); ?></div>
+							<div class="col-lg-1"><p class="text-center">-</p></div>
+							<div class="col-lg-3"><?php $this->Staff_model->displayStaffHours($hours->fri_close); ?></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4"><strong>Saturday</strong></div>
+							<div class="col-lg-2"><?php $this->Staff_model->displayStaffHours($hours->sat_open); ?></div>
+							<div class="col-lg-1"><p class="text-center">-</p></div>
+							<div class="col-lg-3"><?php $this->Staff_model->displayStaffHours($hours->sat_close); ?></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4"><strong>Sunday</strong></div>
+							<div class="col-lg-2"><?php $this->Staff_model->displayStaffHours($hours->sun_open); ?></div>
+							<div class="col-lg-1"><p class="text-center">-</p></div>
+							<div class="col-lg-3"><?php $this->Staff_model->displayStaffHours($hours->sun_close); ?></div>
+						</div>
 					</div>
 				</div>			
 			</div>

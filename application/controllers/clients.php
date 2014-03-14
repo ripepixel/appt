@@ -113,6 +113,15 @@ class Clients extends CI_Controller {
 	    
 	}
 
+	function filter_clients_for_appointments(){
+	    $term = $this->input->post('queryString');
+	    $clients = $this->Client_model->getFilteredClients($term);
+	    foreach($clients as $client) {
+	    	echo "<li id='".$client['id']."'><a href='#' onclick='fill(\"".$client['first_name']." ".$client['last_name'] . "\", ".$client['id'].");'>".$client['first_name']. " ".$client['last_name']."</a></li>";
+	    }
+	    
+	}
+
 	function add_note()
 	{
 		$data = array(

@@ -159,6 +159,15 @@ div small.error {
     margin-top:  30px;
 }
 
+.client_search_list {
+    border: 1px solid #999;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    border-radius:7px;
+    margin-top: 4px;
+    padding: 0 5px;
+}
+
 .client_search_list li, .service_search_list li {
     list-style: none;
     margin-top: 5px;
@@ -859,6 +868,20 @@ form.opening-hours .row {
 }
 
 #footer h2, #footer p {
+    color:white;
+}
+
+#back-footer {
+    padding-top:2.4rem;
+    padding-bottom:2.5rem;
+    background:white;
+    position:relative;
+    display:block;
+    z-index:100;
+    text-align:center;
+}
+
+#back-footer h2, #back-footer p {
     color:white;
 }
 

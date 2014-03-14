@@ -68,4 +68,13 @@ class Staff_model extends CI_Model {
     	return TRUE;
     }
 
+    function displayStaffHours($hours)
+    {
+        if($hours == "00:00:00") {
+            echo "OFF";
+        } else {
+            echo date('H:i', strtotime($hours));
+        }
+    }
+
 }

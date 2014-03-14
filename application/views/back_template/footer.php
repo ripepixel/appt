@@ -1,4 +1,4 @@
-<section id="footer">
+<!--<section id="back-footer">
         <div class="container">
             
            <div class="row">
@@ -10,7 +10,7 @@
            </div>
            
         </div>
-    </section>
+    </section> -->
 
     <!-- JavaScript plugins comes here -->
     

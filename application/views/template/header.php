@@ -47,7 +47,7 @@
               <a href="<?php echo base_url(); ?>dashboard/">Dashboard</a>
             </li>
             <li>
-              <a href="<?php echo base_url(); ?>">Appointments</a>
+              <a href="<?php echo base_url(); ?>appointments">Appointments</a>
             </li>
             <li>
               <a href="<?php echo base_url(); ?>clients/">Clients</a>
