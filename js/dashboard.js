@@ -23,9 +23,28 @@ $(document).ready(function() {
         $( "#dob" ).datepicker({
             changeMonth: true,
             changeYear: true,
-            dateFormat: 'dd-mm-yy',
-            yearRange: "-70:-12",
+            format: 'dd/mm/yyyy',
+            startDate: "-90y",
+			endDate: "-12y",
             viewMode: 'years'
+        });
+    });
+
+
+	$(function() {
+		var today = new Date();
+		var day = today.getDate();
+		var month = today.getMonth()+1;
+		var year = today.getFullYear();
+        $( "#appointment_date" ).datepicker({
+            changeMonth: true,
+            changeYear: true,
+            format: 'dd/mm/yyyy',
+			startDate: today,
+			endDate: "+365d",
+            viewMode: 'years',
+			todayBtn: "linked",
+			todayHighlight: true
         });
     });
 

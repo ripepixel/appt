@@ -33,15 +33,58 @@
         <h4 class="modal-title" id="myModalLabel">New Appointment</h4>
       </div>
       <div class="modal-body">
-        <input type="text" name="client-search" id="client-search" class="form-control" onkeyup="lookup();" placeholder="Enter search terms" />
-			<div id="suggestions">
-			    <div class="client_search_list" id="autoSuggestionsList">    
+				<form action="<?php echo base_url(); ?>clients/update_client" method="post" class="staff-form" id="client-form">
+					<div class="form-group">
+						<label for="client_search">Search Client</label>
+        		<input type="text" name="client-search" id="client-search" class="form-control" onkeyup="lookup();" placeholder="Enter search terms" autocomplete="off" />
+						<input type="hidden" name="client_id" id="client_id" value="" />
+						<div id="suggestions">
+			    		<div class="client_search_list" id="autoSuggestionsList">    
+							</div>
+						</div>
+					</div>
+        	<div class="form-group">
+						<label for="client_search">Or Add New Client</label>
+						<div class="row">
+							<div class="col-lg-6">
+								<input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" />
+							</div>
+							<div class="col-lg-6">
+								<input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" />
+							</div>
+						</div>
+					</div>
+				<div class="form-group">
+					<label for="service_cat">Choose Service Type</label>
+        	<select name="service_cat" id="service_cat" onchange="getServices();" class="form-control">
+						<option value="">-- Choose Service Category --</option>
+        		<?php foreach($service_cats as $sc) {?>
+							<option value="<?php echo $sc['id']; ?>"><?php echo $sc['name']; ?></option>
+							<?php } ?>
+        	</select>
 				</div>
-			</div>
-        <p>or add new client</p>
-        <p>Choose Service</p>
-        <p>List only staff that do that service</p>
-        <p>choose date</p>
+				<div class="form-group">
+					<label for="service">Choose Service</label>
+					<select name="service" id="service" onchange="getStaffForService();" class="form-control">
+        		<option value="">-- Choose Service --</option>
+        	</select>
+				</div>
+
+				<div class="form-group">
+					<label for="staff">Choose Staff Member</label>
+					<select name="staff" id="staff" class="form-control">
+        		<option value="">-- Choose Staff --</option>
+        	</select>
+				</div>
+				
+				<div class="form-group">
+					<label for="appointment_date">Date</label>
+					<input type="text" name="appointment_date" id="appointment_date" class="form-control" onchange="getAvailableAppointments();" /> 
+				</div>
+				<div id="test">
+					
+				</div>
+				</form>
         <p>Only show available times</p>
         <p>Enter deposit paid, if any</p>
         <p>then confirm</p>
@@ -75,10 +118,38 @@
         }
     }
 
+		function getServices() {
+			var catID = document.getElementById('service_cat').value;
+			$.post("<?php echo base_url(); ?>appointments/get_services_by_category", {queryString: ""+catID+""}, function(data){
+				if(data.length > 0) {
+					$('#service').html(data);
+				}
+			});
+		}
+		
+		function getStaffForService() {
+			var servID = document.getElementById('service').value;
+			$.post("<?php echo base_url(); ?>appointments/get_staff_for_service", {queryString: ""+servID+""}, function(data){
+				if(data.length > 0) {
+					$('#staff').html(data);
+				}
+			});
+		}
+		
+		function getAvailableAppointments () {
+			serviceID = document.getElementById('service').value;
+			staffID = document.getElementById('staff').value;
+			chosenDate = document.getElementById('appointment_date').value;
+			$.post("<?php echo base_url(); ?>appointments/get_available_appointments", {serviceID: serviceID, staffID: staffID, chosenDate: chosenDate}, function(data){
+				$('#test').html(data);
+			});
+		}
+
     function fill(clientName, clientID) {
     	var cName = clientName;
     	var cID = clientID;
         $('#client-search').val(cName);
+				$('#client_id').val(cID);
         setTimeout("$('#suggestions').hide();", 200);
     } 
 

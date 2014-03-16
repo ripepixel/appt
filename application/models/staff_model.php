@@ -55,6 +55,40 @@ class Staff_model extends CI_Model {
 
     }
 
+		function getStaffHoursForDay($sid, $date)
+		{
+			// get day from date
+			$day = date('l', strtotime($date));
+			
+			switch($day) {
+				case 'Sunday':
+				$this->db->select('sun_open AS open, sun_close AS close');
+				break;
+				case 'Monday':
+				$this->db->select('mon_open AS open, mon_close AS close');
+				break;
+				case 'Tuesday':
+				$this->db->select('tues_open AS open, tues_close AS close');
+				break;
+				case 'Wednesday':
+				$this->db->select('wed_open AS open, wed_close AS close');
+				break;
+				case 'Thursday':
+				$this->db->select('thurs_open AS open, thurs_close AS close');
+				break;
+				case 'Friday':
+				$this->db->select('fri_open AS open, fri_close AS close');
+				break;
+				case 'Saturday':
+				$this->db->select('sat_open AS open, sat_close AS close');
+				break;
+			}
+			
+			$this->db->where('staff_id', $sid);
+			$q = $this->db->get('staff_hours');
+			return $q->row();
+		}
+
     function saveStaffHours($data)
     {
     	$this->db->insert('staff_hours', $data);

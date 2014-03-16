@@ -1,20 +1,18 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 14, 2014 at 03:48 PM
--- Server version: 5.6.12-log
--- PHP Version: 5.4.16
+-- Generation Time: Mar 16, 2014 at 09:07 PM
+-- Server version: 5.5.25
+-- PHP Version: 5.4.4
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
 -- Database: `appt`
 --
-CREATE DATABASE IF NOT EXISTS `appt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `appt`;
 
 -- --------------------------------------------------------
 
@@ -22,7 +20,7 @@ USE `appt`;
 -- Table structure for table `appointments`
 --
 
-CREATE TABLE IF NOT EXISTS `appointments` (
+CREATE TABLE `appointments` (
   `id` int(30) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL,
   `staff_id` int(10) NOT NULL,
@@ -44,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `appointments` (
 -- Table structure for table `blog_categories`
 --
 
-CREATE TABLE IF NOT EXISTS `blog_categories` (
+CREATE TABLE `blog_categories` (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
@@ -65,7 +63,7 @@ INSERT INTO `blog_categories` (`id`, `name`, `slug`, `order`) VALUES
 -- Table structure for table `blog_comment_replies`
 --
 
-CREATE TABLE IF NOT EXISTS `blog_comment_replies` (
+CREATE TABLE `blog_comment_replies` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
   `blog_comment_id` int(6) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -83,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `blog_comment_replies` (
 -- Table structure for table `blog_posts`
 --
 
-CREATE TABLE IF NOT EXISTS `blog_posts` (
+CREATE TABLE `blog_posts` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
@@ -111,7 +109,7 @@ INSERT INTO `blog_posts` (`id`, `title`, `slug`, `summary`, `content`, `image`, 
 -- Table structure for table `blog_post_comments`
 --
 
-CREATE TABLE IF NOT EXISTS `blog_post_comments` (
+CREATE TABLE `blog_post_comments` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
   `blog_post_id` int(6) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -129,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `blog_post_comments` (
 -- Table structure for table `business_categories`
 --
 
-CREATE TABLE IF NOT EXISTS `business_categories` (
+CREATE TABLE `business_categories` (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
@@ -153,7 +151,7 @@ INSERT INTO `business_categories` (`id`, `name`) VALUES
 -- Table structure for table `business_details`
 --
 
-CREATE TABLE IF NOT EXISTS `business_details` (
+CREATE TABLE `business_details` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL,
   `street` varchar(255) DEFAULT NULL,
@@ -183,7 +181,7 @@ INSERT INTO `business_details` (`id`, `user_id`, `street`, `town`, `county`, `po
 -- Table structure for table `business_hours`
 --
 
-CREATE TABLE IF NOT EXISTS `business_hours` (
+CREATE TABLE `business_hours` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL,
   `mon_open` time NOT NULL,
@@ -216,7 +214,7 @@ INSERT INTO `business_hours` (`id`, `user_id`, `mon_open`, `mon_close`, `tues_op
 -- Table structure for table `clients`
 --
 
-CREATE TABLE IF NOT EXISTS `clients` (
+CREATE TABLE `clients` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL,
   `first_name` varchar(100) NOT NULL,
@@ -248,7 +246,7 @@ INSERT INTO `clients` (`id`, `user_id`, `first_name`, `last_name`, `telephone`, 
 -- Table structure for table `client_notes`
 --
 
-CREATE TABLE IF NOT EXISTS `client_notes` (
+CREATE TABLE `client_notes` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `client_id` int(10) NOT NULL,
   `staff_id` int(10) NOT NULL,
@@ -273,7 +271,7 @@ INSERT INTO `client_notes` (`id`, `client_id`, `staff_id`, `note`, `created_at`)
 -- Table structure for table `countries`
 --
 
-CREATE TABLE IF NOT EXISTS `countries` (
+CREATE TABLE `countries` (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `currency_symbol` varchar(5) NOT NULL,
@@ -294,7 +292,7 @@ INSERT INTO `countries` (`id`, `name`, `currency_symbol`, `currency_html`) VALUE
 -- Table structure for table `email_settings`
 --
 
-CREATE TABLE IF NOT EXISTS `email_settings` (
+CREATE TABLE `email_settings` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL,
   `email_reminders` int(1) NOT NULL DEFAULT '0',
@@ -316,7 +314,7 @@ INSERT INTO `email_settings` (`id`, `user_id`, `email_reminders`, `hours_before`
 -- Table structure for table `plans`
 --
 
-CREATE TABLE IF NOT EXISTS `plans` (
+CREATE TABLE `plans` (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `details` text NOT NULL,
@@ -333,7 +331,7 @@ CREATE TABLE IF NOT EXISTS `plans` (
 --
 
 INSERT INTO `plans` (`id`, `name`, `details`, `price`, `interval_length`, `interval_unit`, `free_days`, `is_active`) VALUES
-(1, 'Appt Test Plan', 'Appt test plan, 19.99 per month, starts after 30 days', '19.99', 1, 'month', NULL, 1);
+(1, 'Appt Test Plan', 'Appt test plan, 19.99 per month, starts after 30 days', 19.99, 1, 'month', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -341,7 +339,7 @@ INSERT INTO `plans` (`id`, `name`, `details`, `price`, `interval_length`, `inter
 -- Table structure for table `services`
 --
 
-CREATE TABLE IF NOT EXISTS `services` (
+CREATE TABLE `services` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL,
   `service_category_id` int(6) NOT NULL,
@@ -358,10 +356,10 @@ CREATE TABLE IF NOT EXISTS `services` (
 --
 
 INSERT INTO `services` (`id`, `user_id`, `service_category_id`, `name`, `details`, `cost`, `sell`, `duration`) VALUES
-(1, 9, 1, 'Back Massage', 'Luxury back massage treatment using the finest oils', '12.00', '25.99', 30),
-(5, 9, 2, 'Full Set Acrylic Nails', 'Full Set Acrylic Nails', '15.00', '27.50', 90),
-(6, 9, 1, 'Full Body Massage', 'Full body massage', '12.00', '35.00', 60),
-(8, 9, 3, 'Test Service', 'This is a test service', '0.00', '2.99', 25);
+(1, 9, 1, 'Back Massage', 'Luxury back massage treatment using the finest oils', 12.00, 25.99, 30),
+(5, 9, 2, 'Full Set Acrylic Nails', 'Full Set Acrylic Nails', 15.00, 27.50, 90),
+(6, 9, 1, 'Full Body Massage', 'Full body massage', 12.00, 35.00, 60),
+(8, 9, 3, 'Test Service', 'This is a test service', 0.00, 2.99, 25);
 
 -- --------------------------------------------------------
 
@@ -369,7 +367,7 @@ INSERT INTO `services` (`id`, `user_id`, `service_category_id`, `name`, `details
 -- Table structure for table `service_categories`
 --
 
-CREATE TABLE IF NOT EXISTS `service_categories` (
+CREATE TABLE `service_categories` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -391,7 +389,7 @@ INSERT INTO `service_categories` (`id`, `user_id`, `name`) VALUES
 -- Table structure for table `staff`
 --
 
-CREATE TABLE IF NOT EXISTS `staff` (
+CREATE TABLE `staff` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL,
   `first_name` varchar(100) NOT NULL,
@@ -423,7 +421,7 @@ INSERT INTO `staff` (`id`, `user_id`, `first_name`, `last_name`, `email`, `passw
 -- Table structure for table `staff_hours`
 --
 
-CREATE TABLE IF NOT EXISTS `staff_hours` (
+CREATE TABLE `staff_hours` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `staff_id` int(10) NOT NULL,
   `mon_open` time NOT NULL,
@@ -457,12 +455,12 @@ INSERT INTO `staff_hours` (`id`, `staff_id`, `mon_open`, `mon_close`, `tues_open
 -- Table structure for table `staff_services`
 --
 
-CREATE TABLE IF NOT EXISTS `staff_services` (
+CREATE TABLE `staff_services` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `staff_id` int(10) NOT NULL,
   `service_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `staff_services`
@@ -472,7 +470,9 @@ INSERT INTO `staff_services` (`id`, `staff_id`, `service_id`) VALUES
 (25, 1, 1),
 (26, 1, 6),
 (27, 3, 1),
-(28, 3, 8);
+(28, 3, 8),
+(29, 3, 5),
+(30, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -480,7 +480,7 @@ INSERT INTO `staff_services` (`id`, `staff_id`, `service_id`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
