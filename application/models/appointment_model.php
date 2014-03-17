@@ -20,6 +20,23 @@ class Appointment_model extends CI_Model {
 			}
 		}
 
+		function getAppointments($uid)
+		{
+			$this->db->where('user_id', $uid);
+			$q = $this->db->get('appointments');
+			if($q->num_rows() > 0) {
+				return $q->result_array();
+			} else {
+				return FALSE;
+			}
+		}
+
+		function createAppointment($data)
+		{
+			$this->db->insert('appointments', $data);
+			return TRUE;
+		}
+
 
 
 }

@@ -53,7 +53,6 @@
 						    <div class="service_search_list" id="autoSuggestionsList">    
 						    </div>
 						</div>
-						<small id="search-help">You can search by first name, last name or address.</small>
 					</div>
 				</div>
 

@@ -20,3 +20,22 @@
 		</div>
 	</div>
 </section>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#calendar-dashboard').fullCalendar({
+        // put your options and callbacks here
+        header: {
+        	left: 'today, prev, next',
+        	center: 'title',
+        	right: 'agendaDay, agendaWeek, month'
+        },
+        defaultView: 'agendaDay',
+        height: 900,
+        firstDay: 1,
+        slotMinutes: 15,
+        firstHour: 6,
+        events: '<?php echo base_url(); ?>dashboard/get_appointments'
+    })
+});
+</script>

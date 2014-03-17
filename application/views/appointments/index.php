@@ -33,7 +33,7 @@
         <h4 class="modal-title" id="myModalLabel">New Appointment</h4>
       </div>
       <div class="modal-body">
-				<form action="<?php echo base_url(); ?>clients/update_client" method="post" class="staff-form" id="client-form">
+				<form action="<?php echo base_url(); ?>appointments/create_appointment" method="post" class="staff-form" id="client-form">
 					<div class="form-group">
 						<label for="client_search">Search Client</label>
         		<input type="text" name="client-search" id="client-search" class="form-control" onkeyup="lookup();" placeholder="Enter search terms" autocomplete="off" />
@@ -81,20 +81,26 @@
 					<label for="appointment_date">Date</label>
 					<input type="text" name="appointment_date" id="appointment_date" class="form-control" onchange="getAvailableAppointments();" /> 
 				</div>
-				<div id="test">
+				<div class="row">
+					<div id="times">
 					
+					</div>
 				</div>
-				</form>
-        <p>Only show available times</p>
-        <p>Enter deposit paid, if any</p>
+				<div class="form-group">
+					<label for="deposit">Any Deposit?</label>
+					<input type="text" name="deposit" id="deposit" class="form-control" /> 
+				</div>
+				
+        <p>If deposit is full amount, set status to paid.</p>
         <p>then confirm</p>
         <p>new client will be created if they do not exist</p>
         <p>If new client, send to edit client detail page so they can fill out more information.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Save changes</button>
+        <button type="submit" class="btn btn-success">Save changes</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -141,7 +147,7 @@
 			staffID = document.getElementById('staff').value;
 			chosenDate = document.getElementById('appointment_date').value;
 			$.post("<?php echo base_url(); ?>appointments/get_available_appointments", {serviceID: serviceID, staffID: staffID, chosenDate: chosenDate}, function(data){
-				$('#test').html(data);
+				$('#times').html(data);
 			});
 		}
 
