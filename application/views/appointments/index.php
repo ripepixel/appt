@@ -10,7 +10,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9">
-					
+				<div id='calendar-appts'></div>
 			</div>
 			<div class="col-lg-3">
 				<div class="panel panel-default">
@@ -39,7 +39,7 @@
         		<input type="text" name="client-search" id="client-search" class="form-control" onkeyup="lookup();" placeholder="Enter search terms" autocomplete="off" />
 						<input type="hidden" name="client_id" id="client_id" value="" />
 						<div id="suggestions">
-			    		<div class="client_search_list" id="autoSuggestionsList">    
+			    		<div id="autoSuggestionsList">    
 							</div>
 						</div>
 					</div>
@@ -106,18 +106,73 @@
 </div>
 
 
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Edit Appointment</h4>
+      </div>
+      <div class="modal-body">
+		<div id="editModalTitle"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <script type="text/javascript">
+	$(document).ready(function() {
+		$('#calendar-appts').fullCalendar({
+	        // put your options and callbacks here
+	        header: {
+	        	left: 'today, prev, next',
+	        	center: 'title',
+	        	right: 'agendaDay, agendaWeek, month'
+	        },
+	        defaultView: 'agendaDay',
+	        height: 900,
+	        firstDay: 1,
+	        slotMinutes: 15,
+	        firstHour: 6,
+	        events: '<?php echo base_url(); ?>appointments/get_appointments',
+	        eventClick: function(calEvent, jsEvent, view) {
+	        	event = null;
+	        	$.ajax({
+	        		url: '<?php echo base_url(); ?>appointments/get_appointment/'+calEvent.id,
+	        		type: "POST",
+	        		dataType: 'json',
+	        		async:false,
+  					data:{app_id: calEvent.id},
+	        		success: function(d){
+	        			event = d;
+	        		}
+	        	});
+	        	
+	        	$('#editModalTitle').html("Client: "+event.client);
+	        	$('#editModal').modal('show');
+	        }
+	    })
+
+	});
+
 	function lookup() {
 		var inputString = document.getElementById('client-search').value;
         if(inputString.length < 2) {
             $('#suggestions').hide();
-						$('#search-help').show();
+			$('#search-help').show();
         } else {
             $.post("<?php echo base_url(); ?>clients/filter_clients_for_appointments", {queryString: ""+inputString+""}, function(data){
                 if(data.length > 0) {
 					$('#search-help').hide();
                     $('#suggestions').show();
+                    $('#autoSuggestionsList').addClass("client_search_list");
                     $('#autoSuggestionsList').html(data);
                 }
             });

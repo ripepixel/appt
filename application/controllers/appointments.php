@@ -24,7 +24,7 @@ class Appointments extends CI_Controller {
 	public function create_appointment()
 	{
 		$client = $this->input->post('client_id');
-		$service = $this->input->post('service');
+		$service_id = $this->input->post('service');
 		$staff = $this->input->post('staff');
 		$date = date("Y-m-d", strtotime($this->input->post('appointment_date')));
 		$time = $this->input->post('time');
@@ -33,7 +33,7 @@ class Appointments extends CI_Controller {
 
 		// get service duration for end time
 		$this->load->model('Service_model');
-		$service = $this->Service_model->getBusinessService($this->session->userdata('user_id'), $service);
+		$service = $this->Service_model->getBusinessService($this->session->userdata('user_id'), $service_id);
 		$end_time =  new DateTime("{$time} + {$service->duration} mins");
 
 		if($deposit == '') {
@@ -49,6 +49,7 @@ class Appointments extends CI_Controller {
 			'user_id' => $this->session->userdata('user_id'),
 			'staff_id' => $staff,
 			'client_id' => $client,
+			'service_id' => $service_id,
 			'date' => $date,
 			'start_time' => $time,
 			'end_time' => $end_time->format('H:i:s'),
@@ -134,6 +135,45 @@ class Appointments extends CI_Controller {
 
 		
 
+	}
+
+	function get_appointments()
+	{
+		$this->load->model('Appointment_model');
+		$appts = $this->Appointment_model->getAppointments($this->session->userdata('user_id'));
+
+		foreach ($appts as $appt) {
+			$this->load->model('Client_model');
+			$client = $this->Client_model->getClient($appt['client_id'], $this->session->userdata('user_id'));
+			$jsonevents[] = array(
+				'id' => $appt['id'],
+				'title' => $appt['service_name']."\n Client: ".$client->first_name." ".$client->last_name,
+				'start' => $appt['date']."T".$appt['start_time'],
+				'end' => $appt['date']."T".$appt['end_time'],
+				'allDay' => ''
+				);
+		}
+
+		echo json_encode($jsonevents);
+	}
+
+	function get_appointment()
+	{
+		$this->load->model('Appointment_model');
+		$appt = $this->Appointment_model->getAppointment($this->input->post('app_id'), $this->session->userdata('user_id'));
+		
+		$this->load->model('Client_model');
+		$client = $this->Client_model->getClient($appt->client_id, $this->session->userdata('user_id'));
+		$jsonevents = array(
+			'id' => $appt->id,
+			'title' => $appt->service_name,
+			'client' => $client->first_name." ".$client->last_name,
+			'start' => $appt->date."T".$appt->start_time,
+			'end' => $appt->date."T".$appt->end_time,
+			'allDay' => ''
+			);
+		
+		echo json_encode($jsonevents);
 	}
 
 }
