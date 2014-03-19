@@ -164,10 +164,19 @@ class Appointments extends CI_Controller {
 		
 		$this->load->model('Client_model');
 		$client = $this->Client_model->getClient($appt->client_id, $this->session->userdata('user_id'));
+		$this->load->model('Staff_model');
+		$staff = $this->Staff_model->getStaffMember($appt->staff_id, $this->session->userdata('user_id'));
+		
 		$jsonevents = array(
 			'id' => $appt->id,
 			'title' => $appt->service_name,
 			'client' => $client->first_name." ".$client->last_name,
+			'service_id' => $appt->service_id,
+			'staff_name' => $staff->first_name." ".$staff->last_name,
+			'deposit' => $appt->deposit_amount,
+			'app_date' => $appt->date,
+			'start_time' => $appt->start_time,
+			'end_time' => $appt->end_time,
 			'start' => $appt->date."T".$appt->start_time,
 			'end' => $appt->date."T".$appt->end_time,
 			'allDay' => ''

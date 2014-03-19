@@ -115,12 +115,45 @@
         <h4 class="modal-title" id="myModalLabel">Edit Appointment</h4>
       </div>
       <div class="modal-body">
-		<div id="editModalTitle"></div>
+				<form action="<?php echo base_url(); ?>appointments/create_appointment" method="post" class="staff-form" id="client-form">
+					<div class="form-group">
+						<label for="client_search">Client</label>
+						<div id="client_name"></div>
+						<div id="suggestions">
+			    		<div id="autoSuggestionsList">    
+							</div>
+						</div>
+					</div>
+				<div class="form-group">
+					<label for="service_cat">Service</label>
+        	<div id="service_name"></div>
+				</div>
+
+				<div class="form-group">
+					<label for="staff">Staff</label>
+					<div id="staff_name"></div>
+				</div>
+				
+				<div class="form-group">
+					<label for="appointment_date">Date</label>
+					<div id="app_date"></div>
+				</div>
+				<div class="row">
+					<div id="times">
+					
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Deposit Paid</label>
+					<div id="deposit_amount"></div>
+				</div>
+				
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-success">Save changes</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -143,21 +176,24 @@
 	        firstHour: 6,
 	        events: '<?php echo base_url(); ?>appointments/get_appointments',
 	        eventClick: function(calEvent, jsEvent, view) {
-	        	event = null;
-	        	$.ajax({
-	        		url: '<?php echo base_url(); ?>appointments/get_appointment/'+calEvent.id,
-	        		type: "POST",
-	        		dataType: 'json',
-	        		async:false,
-  					data:{app_id: calEvent.id},
-	        		success: function(d){
-	        			event = d;
-	        		}
-	        	});
-	        	
-	        	$('#editModalTitle').html("Client: "+event.client);
-	        	$('#editModal').modal('show');
-	        }
+	        	//event = null;
+	        	$.post('<?php echo base_url(); ?>appointments/get_appointment/', {app_id: calEvent.id}, function(data){
+							var theDate = new Date(data.start);
+							var d = theDate.getDate();
+							var m = theDate.getMonth() + 1;
+							var y = theDate.getFullYear();
+							$('#editModalTitle').html("Client: " + data.client);
+							$('#client_name').html(data.client);
+							$('#service_name').html(data.title);
+							$('#staff_name').html(data.staff_name);
+							$('#app_date').html(d+"/"+m+"/"+y);
+							$('#deposit_amount').html("&pound;"+data.deposit);
+							$('#edit_client_id').val(data.id);
+		        	$('#editModal').modal('show');
+						}, 'json');
+						
+					}
+						
 	    })
 
 	});
